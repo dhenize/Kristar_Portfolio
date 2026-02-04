@@ -1,15 +1,15 @@
-// homepage.jsx
+// Homepage.jsx
 import React from 'react'
 
-
+//IMPORTED FILES
 import mydrawing from '../assets/kristar/mydrawing.png'
 
-function Homepage() {
+const Homepage = () => {
   return (
     <div className="flex min-h-screen">
 
       {/* COVER PAGE */}
-      <div className="flex w-full custom-four-color-gradient">
+      <div className="flex w-full sunset-bg">
         {/* Drawing Container */}
         <div className="flex justify-center items-center p-15">
           <img src = {mydrawing}

@@ -1,12 +1,24 @@
 @import "tailwindcss";
 
-
-.custom-four-color-gradient {
+/* HOMEPAGE */
+.sunset-bg {
   width: 100%;
   background: linear-gradient(to bottom, 
     #621D7A, /* top */
     #E85395,
     #FF9071,
     #FFF5B5 /* bottom */
+  );
+}
+
+
+/* PROJECTS */
+.night-bg {
+  width: 100%;
+  background: linear-gradient(to bottom, 
+    #0E2148, /* top */
+    #483AA0,
+    #974EC3,
+    #E3D095 /* bottom */
   );
 }
