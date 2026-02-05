@@ -7,7 +7,7 @@ import Homepage from './pages/homepage.jsx'
 
 //IMPORTED COMPONENTS
 import Header from './components/header.jsx'
-
+import Footer from './components/footer.jsx'
 
 
 function App() {
@@ -19,7 +19,8 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Homepage />} />
-        </Routes> 
+        </Routes>
+        <Footer />
       </Router>
     </>
   )

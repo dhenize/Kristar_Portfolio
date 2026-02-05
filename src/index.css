@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 /* HOMEPAGE */
 .sunset-bg {
   width: 100%;
@@ -10,6 +9,248 @@
     #FFF5B5 /* bottom */
   );
 }
+
+/* METEOR SHOWER*/
+.meteor-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.meteor {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  animation: meteorFall linear infinite;
+}
+
+.meteor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6));
+  transform: translate(100%, -50%) rotate(-225deg);
+  transform-origin: center;
+}
+
+@keyframes meteorFall {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  10% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-300px, 300px);
+  }
+}
+
+/* TECH STACK CAROUSEL */
+.tech-stack-container {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+  position: relative;
+  padding: 100px 0;
+}
+
+.tech-stack-scroll {
+  display: flex;
+  gap: 80px;
+  animation: scroll 40s linear infinite;
+  width: max-content;
+}
+
+.tech-stack-scroll:hover {
+  animation-play-state: paused;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-width: 150px;
+  cursor: pointer;
+  position: relative;
+}
+
+.tech-logo-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.tech-item:hover .tech-logo-wrapper {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.tech-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.tech-name {
+  font-family: 'Lato', sans-serif;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tech-tooltip {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 100;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Connecting line from tooltip to tech stack */
+.tech-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.tech-item:hover .tech-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* SCROLL ANIMATIONS */
+.fade-in-section {
+  opacity: 0;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-section.animate-in {
+  opacity: 1;
+}
+
+/* Slide in from top */
+.slide-in-top {
+  transform: translateY(-100px);
+}
+
+.slide-in-top.animate-in {
+  transform: translateY(0);
+}
+
+/* Zoom in effect */
+.zoom-in {
+  transform: scale(0.8);
+}
+
+.zoom-in.animate-in {
+  transform: scale(1);
+}
+
+/* Stagger cards animation */
+.stagger-card {
+  opacity: 0;
+  transform: translateY(50px) rotate(-5deg);
+}
+
+.fade-in-section.animate-in .stagger-card {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+
+.fade-in-section.animate-in .stagger-card:nth-child(1) {
+  transition: all 0.3s ease-out 0.1s;
+}
+
+.fade-in-section.animate-in .stagger-card:nth-child(2) {
+  transition: all 0.3s ease-out 0.1s;
+}
+
+.fade-in-section.animate-in .stagger-card:nth-child(3) {
+  transition: all 0.3s ease-out 0.1s;
+}
+
+
+/* ADDITIONAL CARDS - ACCORDION HOVER EFFECT */
+.accordion-card {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.accordion-card:hover {
+  transform: scale(1.15) rotate(3deg) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.accordion-card img {
+  transition: transform 0.2s ease;
+}
+
+.accordion-card:hover img {
+  transform: scale(1.1);
+}
+
+.accordion-card h4 {
+  transition: transform 0.2s ease;
+}
+
+.accordion-card:hover h4 {
+  transform: translateY(5px);
+}
+
+
+/* =========================================================== */
 
 
 /* PROJECTS */
