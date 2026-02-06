@@ -16,7 +16,7 @@ const Footer = () => {
     
     
   return (
-    <div className='w-full py-55 pb-7 bg-[#332837] justify-center items-center'>
+    <div className='w-full py-50 pb-7 bg-[#332837] justify-center items-center'>
         
         {/* COPYRIGHT */}
         <div>

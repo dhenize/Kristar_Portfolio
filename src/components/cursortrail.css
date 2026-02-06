@@ -1,0 +1,91 @@
+/* CURSOR TRAIL CONTAINER */
+.cursor-trail-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* SPARKLE EFFECT */
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: #FFD220;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px #FFD220,
+    0 0 20px #FFD220,
+    0 0 30px rgba(255, 210, 32, 0.5);
+  animation: sparkleAnimation ease-out forwards;
+}
+
+/* Star shape variant - randomly applied */
+.sparkle:nth-child(3n) {
+  clip-path: polygon(
+    50% 0%, 
+    61% 35%, 
+    98% 35%, 
+    68% 57%, 
+    79% 91%, 
+    50% 70%, 
+    21% 91%, 
+    32% 57%, 
+    2% 35%, 
+    39% 35%
+  );
+  background: linear-gradient(45deg, #FFD220, #FFF5B5);
+}
+
+/* Diamond shape variant */
+.sparkle:nth-child(5n) {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: radial-gradient(circle, #FFF5B5, #FFD220);
+}
+
+@keyframes sparkleAnimation {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3) rotate(360deg);
+  }
+}
+
+/* Optional: Add a subtle glow trail effect */
+.sparkle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 210, 32, 0.3) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  animation: glowPulse 0.6s ease-out forwards;
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
