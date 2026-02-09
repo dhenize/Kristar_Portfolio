@@ -1,10 +1,15 @@
 // Homepage.jsx
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 //IMPORTED FILES
 import mydrawing from '../assets/kristar/mydrawing.png'
 import intro_bg from '../assets/pics/backgrounds/intro_bg.png'
 import mypic from '../assets/kristar/LOPEZ.jpg'
+
+//IMPORTED COMPONENTS
+import Education from '../components/home/education.jsx'
+import MyFocus from '../components/home/myfocus.jsx'
+import MySkills from '../components/home/skills.jsx'
 
 //TECH STACK LOGOS
 import Canva from '../assets/logos/canva.png'
@@ -30,6 +35,11 @@ import Skills from '../assets/icons/skills.png'
 
 
 const Homepage = () => {
+  /* COMPONENTS */
+  const [showEducation, setShowEducation] = useState(false);
+  const [showFocus, setShowFocus] = useState(false);
+  const [showSkills, setShowSkills] = useState(false);
+
 
   /* SCROLL ANIMATION */
   useEffect(() => {
@@ -220,20 +230,56 @@ const Homepage = () => {
 
       {/* ADDITIONALS */}
       <div className='fade-in-section flex flex-wrap justify-center items-center space-x-45 bg-[#332837] w-full py-10'>
-        <div className='additional-card accordion-card stagger-card bg-[#FF9071] h-55 w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
+        <div
+          onClick={() => setShowEducation(true)}
+          className='additional-card accordion-card stagger-card bg-[#FF9071] h-55 w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
           <img src={Edu} className='h-20' />
           <h4 className="text-white text-xl font-lato font-bold">Education</h4>
         </div>
-        <div className='additional-card accordion-card stagger-card bg-[#FF9071] h-55 w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
+        <div
+          onClick={() => setShowFocus(true)}
+          className='additional-card accordion-card stagger-card bg-[#FF9071] h-55 w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
           <img src={Focus} className='h-20' />
           <h4 className="text-white text-xl font-lato font-bold">My Focus</h4>
         </div>
-        <div className='additional-card accordion-card stagger-card bg-[#FF9071] h-55 w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
+        <div 
+          onClick={() => setShowSkills(true)}
+          className='additional-card accordion-card stagger-card bg-[#FF9071] h-55 w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
           <img src={Skills} className='h-20' />
           <h4 className="text-white text-xl font-lato font-bold">Skills</h4>
         </div>
       </div>
-    </div>
+
+
+      {/* EDUCATION MODAL */}
+      {showEducation && (
+        <div className='modal-overlay' onClick={() => setShowEducation(false)}>
+          <div onClick={(e) => e.stopPropagation()}>
+            <Education onClose={() => setShowEducation(false)} />
+          </div>
+        </div>
+      )}
+
+      {/* MY FOCUS MODAL */}
+      {showFocus && (
+        <div className='modal-overlay' onClick={() => setShowFocus(false)}> 
+          <div onClick={(e) => e.stopPropagation()}>
+            <MyFocus onClose={() => setShowFocus(false)} />
+          </div>
+        </div>
+      )}
+
+      {/* MY SKILLS MODAL */}
+      {showSkills && (
+        <div className='modal-overlay' onClick={() => setShowSkills(false)}> 
+          <div onClick={(e) => e.stopPropagation()}>
+            <MySkills onClose={() => setShowSkills(false)} />
+          </div>
+        </div>
+      )} 
+
+
+    </div> //END OF MAIN RETURN
   )
 }
 
