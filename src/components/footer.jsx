@@ -5,7 +5,8 @@ import FbLogo from '../assets/logos/facebook.png'
 import IgLogo from '../assets/logos/instagram.png'
 import LnkLogo from '../assets/logos/linkedin.png'
 import GitLogo from '../assets/logos/github.png' 
-import GmLogo from '../assets/logos/gmail.png' 
+import GmLogo from '../assets/logos/gmail.png'
+import TktkLogo from '../assets/logos/tiktok.png'
 
 
 const Footer = () => {
@@ -37,6 +38,11 @@ const Footer = () => {
                 className='flex items-center font-lato text-white text-md'>
                 <img src={IgLogo} alt="Instagram Logo" className='w-4 h-4 mx-2'/>
                 Instagram
+            </a>
+            <a href='https://www.tiktok.com/@dhenizelopez?_r=1&_t=ZS-94g69a6IxEq' target="_blank" rel="noopener noreferrer" 
+                className='flex items-center font-lato text-white text-md'>
+                <img src={TktkLogo} alt="Tiktok Logo" className='w-4 h-4 mx-2'/>
+                Tiktok
             </a>
             <a href={gmailUrl} target="_blank" rel="noopener noreferrer" 
                 className='flex items-center font-lato text-white text-md'>

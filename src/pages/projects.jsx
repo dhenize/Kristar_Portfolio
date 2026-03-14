@@ -19,7 +19,7 @@ import starline from '../assets/icons/starline.png'
 //Publication Materials
 
 
-//Media
+//Video Edits
 
 
 
@@ -54,7 +54,7 @@ const Projects = () => {
         { id: 4, label: 'Desktop Application' },
         { id: 5, label: 'Illustration' },
         { id: 6, label: 'Publication Materials' },
-        { id: 7, label: 'Media' },
+        { id: 7, label: 'Video Edits' },
     ]
 
 
@@ -114,12 +114,20 @@ const Projects = () => {
 
             {/* FILTER */}
             <div className='w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8'>
-                <h1 className='bg-white/16 hover:bg-white/25 text-white px-6 py-2 rounded-full border border-white/30 transition duration-300'>
-                    All Projects
-                </h1>
+                <h2 className='text-white text-2xl font-lato'>ALL PROJECTS</h2>
 
-
+                <select className='bg-transparent border border-gray-500 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'>
+                    {combobox.map((option) => (
+                        <option key={option.id} value={option.label}>
+                            {option.label}
+                        </option>
+                    ))}
+                </select>
             </div>
+
+
+            {/* PROJECTS MAIN CONTAINER */}
+            
         </div>
     )
 }

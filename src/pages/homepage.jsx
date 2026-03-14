@@ -27,6 +27,7 @@ import Mysql from '../assets/logos/mysql_circle.png'
 import Python from '../assets/logos/python.png'
 import Reactjs from '../assets/logos/react.png'
 import Tailwind from '../assets/logos/tailwind_circle.png'
+import Lark from '../assets/logos/lark_circle.png'
 
 //ICONS
 import Edu from '../assets/icons/education.png'
@@ -75,7 +76,7 @@ const Homepage = () => {
   }
 
   /* INTRODUCTION TEXTS */
-  const intro_txts = "An aspiring QA (Quality Assurance), System Administrator, \n and Technical Support with a strong interest in system \n checking and troubleshooting. She specializes in structured \n system planning, designing, testing and implementation, and \n team coordination.";
+  const intro_txts = "An aspiring QA (Quality Assurance), Fullstack Developer, \n and Multimedia Editor with a strong interest in system \n checking and troubleshooting. She specializes in structured \n system planning, designing, testing and implementation, and \n team coordination. She is also passionate about \n  multimedia content creation and digital illustrations.";
 
   const tech_stacks = [
     //WEB DEVELOPMENT
@@ -103,6 +104,7 @@ const Homepage = () => {
     { name: 'Medibang', logo: Medi, usage: 'Digital Illustration' },
     { name: 'Canva', logo: Canva, usage: 'Graphic Design & Branding' },
     { name: 'Capcut', logo: Capcut, usage: 'Video Editing' },
+    { name: 'Lark', logo: Lark, usage: 'Collaboration Tool' },
   ];
 
 
