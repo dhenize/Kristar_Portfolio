@@ -317,12 +317,14 @@ const ProjectInfo = ({ project, onClose }) => {
             {/* Modal Backdrop */}
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
                 <div
-                    className={`w-full max-w-5xl rounded-2xl p-0.5 relative ${isVisible ? 'pi-modal-enter' : 'pi-modal-leave'}`}
+                    className={`w-full max-w-5xl relative ${isVisible ? 'pi-modal-enter' : 'pi-modal-leave'}`}
                     style={{
-                        background: 'linear-gradient(180deg, #0E2148 0%, #483AA0 35%, #974EC3 70%, #E3D095 100%)'
+                        borderRadius: '16px',
+                        border: '4px solid transparent',
+                        background: 'linear-gradient(#231528, #231528) padding-box, linear-gradient(180deg, #0E2148 0%, #483AA0 35%, #974EC3 70%, #E3D095 100%) border-box',
                     }}
                 >
-                    <div className="relative bg-[#231528] rounded-2xl w-full overflow-hidden flex" style={{ height: '650px' }}>
+                    <div className="relative bg-[#231528] rounded-xl w-full overflow-hidden flex" style={{ height: '650px' }}>
 
                         {/* Close Button — MyFocus style exactly */}
                         <button className="pi-close-btn" onClick={handleClose}>✕</button>

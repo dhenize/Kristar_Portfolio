@@ -27,6 +27,7 @@ import Mysql from '../assets/logos/mysql_circle.png'
 import Python from '../assets/logos/python.png'
 import Reactjs from '../assets/logos/react.png'
 import Tailwind from '../assets/logos/tailwind_circle.png'
+import Vbnet from '../assets/logos/vbnet.png'
 import Lark from '../assets/logos/lark_circle.png'
 
 //ICONS
@@ -94,6 +95,7 @@ const Homepage = () => {
     { name: 'Python', logo: Python, usage: 'Backend Programming Language' },
     { name: 'Java', logo: Java, usage: 'Backend Programming Language' },
     { name: 'C++', logo: Cplus2, usage: 'Backend Programming Language' },
+    { name: 'Visual Basic', logo: Vbnet, usage: 'Backend Programming Language' },
 
     //DATABASE
     { name: 'Firebase', logo: Firebase, usage: 'Real-time Database & Authentication' },

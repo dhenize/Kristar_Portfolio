@@ -72,7 +72,7 @@ import trus3 from '../assets/pics/project_pics/desktop/toolsrus/4.jpg'
 //VISUAL BASIC MINI SYSTEMS
 import vb1 from '../assets/pics/project_pics/desktop/vb_activities/act1.png'
 import vb2 from '../assets/pics/project_pics/desktop/vb_activities/act2_1.png'
-import vb3 from '../assets/pics/project_pics/desktop/vb_activities/act2_1.png'
+import vb3 from '../assets/pics/project_pics/desktop/vb_activities/act2_2.png'
 import vb4 from '../assets/pics/project_pics/desktop/vb_activities/act3.png'
 import vb5 from '../assets/pics/project_pics/desktop/vb_activities/act4.png'
 
@@ -151,6 +151,8 @@ import Mysql from '../assets/logos/mysql_circle.png'
 import Python from '../assets/logos/python.png'
 import Reactjs from '../assets/logos/react.png'
 import Tailwind from '../assets/logos/tailwind_circle.png'
+import Vbnet from '../assets/logos/vbnet.png'
+import Lark from '../assets/logos/lark_circle.png'
 
 
 //ICONS PER CATEGORY
@@ -192,92 +194,89 @@ const Projects = () => {
     const projects = useMemo(() => [
         {
             id: 1,
-            title: 'COMWARE: Inventory Management System',
+            title: 'COMWARE: Computer Hardware E-Commerce Website',
             category: 'Web Application',
             coverImage: comw1,
             additionalPics: [comw2],
-            description: 'A comprehensive inventory management system designed for warehouse operations. Features include real-time stock tracking, supplier management, and automated reordering.',
-            techStack: [tech(Html,'HTML'), tech(Css,'CSS'), tech(Js,'JavaScript'), tech(Reactjs,'React'), tech(Tailwind,'Tailwind'), tech(Firebase,'Firebase')],
+            description: 'A comprehensive e-Commerce platform for selling computer hardware. Features include product catalog, shopping cart, and item checkout.',
+            techStack: [tech(Html,'HTML'), tech(Css,'CSS'), tech(Canva,'Canva')],
             contributions: [
-                'Designed and implemented the entire user interface',
-                'Developed real-time inventory tracking functionality',
-                'Created supplier management module',
-                'Implemented automated reporting system'
+                'Designed the carousel and product listing in home page',
+                'Designed the posters/banners used for the website',
             ]
         },
         {
             id: 2,
-            title: 'EduQueue: Student Queueing System',
+            title: 'EduQueue: Registrar Ticketing System',
             category: 'Web Application',
             coverImage: eduq1,
             additionalPics: [eduq2, eduq3, eduq4, eduq5],
-            description: 'A digital queueing system for educational institutions to manage student services efficiently. Reduces waiting time and improves service delivery.',
-            techStack: [tech(Html,'HTML'), tech(Css,'CSS'), tech(Js,'JavaScript'), tech(Reactjs,'React'), tech(Tailwind,'Tailwind'), tech(Firebase,'Firebase')],
+            description: 'A ticketing system for school registrar offices to manage student queues and appointments especially for scholarly services.',
+            techStack: [tech(Html,'HTML'), tech(Css,'CSS'), tech(Js,'JavaScript'), tech(Mysql,'MySQL')],
             contributions: [
-                'Built the queue management algorithm',
-                'Designed real-time notification system',
-                'Developed admin dashboard for monitoring',
-                'Implemented student authentication'
+                'One of the designers of the user interface of the system in Figma',
+                'Became the project manager of the team',
+                'One of the developers of the front end interface, and main menu page',
             ]
         },
         {
             id: 3,
-            title: 'Fit4School: School Uniform Management (Web)',
+            title: 'Fit4school: Mobile Uniform Pre-ordering System With Virtual Size Assistance For Children’s School Of Tomorrow',
             category: 'Web Application',
             coverImage: fit4s1,
             additionalPics: [fit4s2, fit4s3, fit4s4, fit4s5],
-            description: 'Web-based platform for managing school uniform orders, inventory, and distribution. Streamlines the entire uniform procurement process.',
-            techStack: [tech(Html,'HTML'), tech(Css,'CSS'), tech(Js,'JavaScript'), tech(Reactjs,'React'), tech(Tailwind,'Tailwind'), tech(Firebase,'Firebase')],
+            description: 'The web application of our capstone system, which allows administrators and accountants to manage the uniform inventory, orders, and payments. It also provides a dashboard for sales and inventory analytics.',
+            techStack: [tech(Figma,'Figma'), tech(Js,'JavaScript'), tech(Reactjs,'ReactJS'), tech(Tailwind,'TailwindCSS'), tech(Firebase,'Firebase')],
             contributions: [
-                'Developed order management system',
-                'Created inventory tracking module',
-                'Built payment integration',
-                'Designed responsive user interface'
+                'One of the front end developers',
+                'Developed the back end of the system',
+                'Tested and debugged the system, ensuring its quality',
+                'Managed the database of the system'
             ]
         },
         {
             id: 4,
-            title: 'Jelizen: E-Commerce Platform',
+            title: 'Jelizen Portfolio',
             category: 'Web Application',
             coverImage: jel1,
             additionalPics: [jel2, jel3, jel4, jel5],
-            description: 'A modern e-commerce platform featuring product catalog, shopping cart, and secure checkout. Built with focus on user experience and performance.',
-            techStack: [tech(Html,'HTML'), tech(Css,'CSS'), tech(Js,'JavaScript'), tech(Reactjs,'React'), tech(Tailwind,'Tailwind'), tech(Firebase,'Firebase')],
+            description: 'A group portfolio created and designed along with Jeannen Basay and Julia Fajardo.',
+            techStack: [tech(Figma,'Figma'), tech(Js,'JavaScript'), tech(Reactjs,'React'), tech(Tailwind,'Tailwind')],
             contributions: [
-                'Implemented product catalog system',
-                'Developed shopping cart functionality',
-                'Created user authentication and profiles',
-                'Built order tracking system'
+                'Lead developer of the team',
+                'One of the designers the user interface, especially the interactivity of the website',
+                'System files manager of the project'
             ]
         },
         {
             id: 5,
-            title: 'Fit4School: Mobile Application',
+            title: 'Fit4school: Mobile Uniform Pre-ordering System With Virtual Size Assistance For Children’s School Of Tomorrow ',
             category: 'Mobile Application',
             coverImage: fit4m1,
             additionalPics: [fit4m2, fit4m3, fit4m4, fit4m5],
-            description: 'Mobile companion app for the Fit4School uniform management system. Allows students and parents to order and track uniforms on-the-go.',
+            description: 'The mobile application of the capstone project, designed for student and parents as a platform where they can virtually fit and pre-order the uniform.',
             techStack: [tech(Js,'JavaScript'), tech(Reactjs,'React Native'), tech(Expo,'Expo'), tech(Firebase,'Firebase')],
             contributions: [
-                'Developed cross-platform mobile interface',
-                'Implemented push notifications',
-                'Created order tracking features',
-                'Optimized for mobile performance'
+                'Lead developer of the team',
+                'Developed the front end and back end of the system',
+                'Implemented the virtual size assistance module, QR ticketing and scanning',
+                'Developed the end-to-end process of the project',
+                'Tested and debugged the system, ensuring its quality',
+                'Managed the database of the system'
             ]
         },
         {
             id: 6,
-            title: 'Potato Donut Cafe Point of Sales System',
+            title: 'Potato Donut Cafe (PDC) Point of Sales System',
             category: 'Desktop Application',
             coverImage: pdc1,
             additionalPics: [pdc2],
-            description: 'A comprehensive POS system for a cafe, handling orders, inventory, and sales reporting. Features include table management and receipt printing.',
-            techStack: [tech(Java,'Java'), tech(Mysql,'MySQL')],
+            description: 'My very first Java point of sales system for an individual school project.',
+            techStack: [tech(Java,'Java')],
             contributions: [
-                'Built complete POS interface',
-                'Developed inventory management',
-                'Created sales reporting module',
-                'Implemented receipt generation'
+                'Fullstack developer of the system',
+                'Designed the logo and user interface',
+                'Utilized its functionality and features'
             ]
         },
         {
@@ -286,28 +285,27 @@ const Projects = () => {
             category: 'Desktop Application',
             coverImage: alv1,
             additionalPics: [alv2],
-            description: 'Desktop application for managing dental clinic operations including patient records, appointments, and billing.',
-            techStack: [tech(Java,'Java'), tech(Mysql,'MySQL')],
+            description: 'A group project designed in Visual Basic with Microsoft Access for managing dental appointments, inventory, and transaction.',
+            techStack: [tech(Vbnet,'Visual Basic'), tech(Canva, 'Canva')],
             contributions: [
-                'Designed patient management system',
-                'Developed appointment scheduling',
-                'Created billing and invoicing module',
-                'Implemented treatment history tracking'
+                'One of the developers of the team',
+                'Developed the front end of the system',
+                'Contributed at the back end process'
             ]
         },
         {
             id: 8,
-            title: 'Fred Fries Point of Sales',
+            title: 'Fred Fries Point of Sales System',
             category: 'Desktop Application',
             coverImage: ff1,
             additionalPics: [ff2, ff3],
-            description: 'Fast food POS system with quick order processing and inventory management capabilities.',
-            techStack: [tech(Java,'Java'), tech(Mysql,'MySQL')],
+            description: 'A Java desktop application for a fast food stall to streamline the manual ordering process.',
+            techStack: [tech(Java,'Java'), tech(Mysql,'MySQL'), tech(Canva,'Canva')],
             contributions: [
-                'Developed fast order entry system',
-                'Created combo meal management',
-                'Built daily sales reporting',
-                'Implemented user access controls'
+                'Lead developer of the team',
+                'Designed the user interface of the system, including the customized buttons and items',
+                'Utilized its functionality and features',
+                'Tested and debugged the system, ensuring its quality'
             ]
         },
         {
@@ -316,58 +314,58 @@ const Projects = () => {
             category: 'Desktop Application',
             coverImage: lcs1,
             additionalPics: [lcs2],
-            description: 'POS system specialized for school supplies retail, featuring seasonal product management and student discounts.',
-            techStack: [tech(Java,'Java'), tech(Mysql,'MySQL')],
+            description: 'A group project designed in Visual Basic with Microsoft Access to digitalize the process of distributing and organizing school supplies.',
+            techStack: [tech(Vbnet,'Visual Basic')],
             contributions: [
-                'Built product categorization system',
-                'Developed discount management',
-                'Created inventory alerts',
-                'Implemented sales analytics'
+                'One of the developers, and project manager of the team',
+                'Designed the user interface of the system, including the customized buttons and items',
+                'Developed the process of the main POS page',
+                'Tested and debugged the system, ensuring its quality'
             ]
         },
         {
             id: 10,
-            title: 'Tools R Us Hardware Store POS',
+            title: 'Tools R Us: Hardware Store Point of Sales and Inventory Management System',
             category: 'Desktop Application',
             coverImage: trus1,
             additionalPics: [trus2, trus3],
-            description: 'Hardware store point of sale system with support for bulk purchases and contractor accounts.',
+            description: 'A Java desktop application for managing inventory and customer orders for a hypothetical hardware shop.',
             techStack: [tech(Java,'Java'), tech(Mysql,'MySQL')],
             contributions: [
-                'Developed bulk order processing',
-                'Created customer account management',
-                'Built inventory tracking by location',
-                'Implemented purchase order system'
+                'One of the developers of the team',
+                'Designed the front end of the system',
+                'Utilized its functionality and features',
+                'Tested and debugged the system, ensuring its quality'
             ]
         },
         {
             id: 11,
-            title: 'Visual Basic Mini Systems Collection',
+            title: 'Visual Basic School Activities',
             category: 'Desktop Application',
             coverImage: vb1,
             additionalPics: [vb2, vb3, vb4, vb5],
-            description: 'Collection of mini desktop applications built as programming exercises and demonstrations.',
-            techStack: [],
+            description: 'A compilation of mini systems for our individual activities using Visual Basic.',
+            techStack: [tech(Vbnet,'Visual Basic')],
             contributions: [
-                'Developed various calculators',
-                'Created form validation examples',
-                'Built data entry systems',
-                'Implemented basic CRUD operations'
+                'Fullstack developer of the systems',
+                '1st Image: Tokyo Revengers Inspired Wikipedia',
+                '2nd & 3rd Image: Noto-machi: Notes Desktop Application Inspired by Otomachi Una',
+                '4th Image: Hatsune Miku Three-Operand Calculator with Background Music',
+                '5th Image: Domestic Flight Timetable'
             ]
         },
         {
             id: 12,
-            title: 'Digital Art Portfolio',
+            title: 'Digital Art Collection',
             category: 'Illustration',
             coverImage: draw1,
             additionalPics: [draw2, draw3],
-            description: 'Collection of digital illustrations featuring character art and original designs.',
+            description: 'Some of my collection of digital illustrations.',
             techStack: [tech(Medi,'MediBang')],
             contributions: [
-                'Created original character designs',
-                'Developed unique art style',
-                'Produced fan art illustrations',
-                'Experimented with color palettes'
+                '1st Image: Hirono Version of Manjiro Sano from Tokyo Revengers',
+                '2nd Image: A fanart of Chroma’s Original Character (OC)',
+                '3rd Image: My Art Persona'
             ]
         },
         {
@@ -376,78 +374,69 @@ const Projects = () => {
             category: 'Illustration',
             coverImage: pixel1,
             additionalPics: [pixel2, pixel3],
-            description: 'Various pixel art pieces showcasing retro gaming aesthetics and character sprites.',
-            techStack: [tech(Medi,'MediBang')],
+            description: 'A compilation of pixel artworks created in LibreSprite.',
+            techStack: [],
             contributions: [
-                'Created pixel character sprites',
-                'Designed tile sets',
-                'Developed color-limited palettes',
-                'Produced animation frames'
+                '1st Image: Kuromi',
+                '2nd Image: Palette Challenge with Original Character (OC)',
+                '3rd Image: Pearl from Steven Universe'
             ]
         },
         {
             id: 14,
-            title: 'Portfolio Character Design Process',
+            title: 'Portfolio Character in Homepage',
             category: 'Illustration',
             coverImage: kstar1,
             additionalPics: [kstar2, kstar3],
-            description: 'Step-by-step process of creating the portfolio mascot character from sketch to final render.',
-            techStack: [tech(Medi,'MediBang')],
+            description: 'Step-by-step process of creating my portfolio character from sketch to final render using IbisPaint.',
+            techStack: [],
             contributions: [
-                'Developed character concept',
-                'Created clean line art',
-                'Applied color and shading',
-                'Finalized character design'
+                '1st Image: Traditional Sketch',
+                '2nd Image: Lineart',
+                '3rd Image: Rendered'
             ]
         },
         {
             id: 15,
-            title: 'Academic Art Projects',
+            title: 'School Art Projects',
             category: 'Illustration',
             coverImage: sch1,
             additionalPics: [],
             description: 'Art projects created for school requirements and academic presentations.',
-            techStack: [tech(Canva,'Canva'), tech(Medi,'MediBang')],
+            techStack: [],
             contributions: [
-                'Created educational illustrations',
-                'Designed presentation graphics',
-                'Produced subject-related artwork',
-                'Developed visual aids'
+                'One of the representative of our section',
+                'An art that represents gender equality, and hand-drawn in IbisPaint.'
             ]
         },
         {
             id: 16,
-            title: 'COMWARE Marketing Materials',
+            title: 'COMWARE Marketing Materials, Posters, and Banners',
             category: 'Posters',
             coverImage: cwm1,
             additionalPics: [cwm2, cwm3],
-            description: 'Marketing posters and promotional materials for the COMWARE project.',
-            techStack: [tech(Canva,'Canva'), tech(Figma,'Figma')],
+            description: 'Marketing posters and promotional materials for the COMWARE e-commerce website.',
+            techStack: [tech(Canva,'Canva')],
             contributions: [
-                'Designed promotional posters',
-                'Created brand identity materials',
-                'Developed marketing campaigns',
-                'Produced social media graphics'
+                'Marketing materials designer'
             ]
         },
         {
             id: 17,
-            title: 'Kasaysayan: Historical Publication',
+            title: 'Kasaysayan: Visual Sources in the Philippines',
             category: 'Posters',
             coverImage: kas1,
             additionalPics: [kas2, kas3],
-            description: 'Publication design for a historical project featuring Filipino heritage and culture.',
+            description: 'Publication design for a group project featuring Filipino history, culture and landmarks',
             techStack: [tech(Canva,'Canva')],
             contributions: [
-                'Designed publication layout',
-                'Created cover and back designs',
-                'Developed acknowledgment page',
-                'Maintained historical theme consistency'
+                'One of the designers of the team',
+                'Responsible for designing the cover, acknowledgement, and back page of the magazine'
             ]
         },
         {
             id: 18,
-            title: 'Miscellaneous Design Works',
+            title: 'School Poster Activities',
             category: 'Posters',
             coverImage: oth1,
             additionalPics: [oth2, oth3, oth4, oth5],

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import CvResume from '../../components/home/cvresume.jsx'
 
-// import profilePic from '../../assets/kristar/profile.jpg'
+import profilePic from '../../assets/kristar/LOPEZ_2X2.png'
 
 const AboutMe = ({ onClose }) => {
     const [animateIn, setAnimateIn] = useState(false)
     const [showCV, setShowCV] = useState(false)
-    const [sliding, setSliding] = useState(false)
-    const [panelDir, setPanelDir] = useState('in-left') // which animation to play
+    const [panelDir, setPanelDir] = useState('in-left')
 
     useEffect(() => {
         setTimeout(() => setAnimateIn(true), 60)
@@ -20,21 +19,17 @@ const AboutMe = ({ onClose }) => {
 
     const handleViewResume = () => {
         setPanelDir('out-left')
-        setSliding(true)
         setTimeout(() => {
             setShowCV(true)
             setPanelDir('in-right')
-            setSliding(false)
         }, 300)
     }
 
     const handleBackToAbout = () => {
         setPanelDir('out-right')
-        setSliding(true)
         setTimeout(() => {
             setShowCV(false)
             setPanelDir('in-left')
-            setSliding(false)
         }, 300)
     }
 
@@ -73,8 +68,8 @@ const AboutMe = ({ onClose }) => {
                     to   { opacity: 1; transform: translateX(0); }
                 }
                 @keyframes am-pulseRing {
-                    0%, 100% { box-shadow: 0 0 0 3px rgba(232,83,149,0.45), 0 0 0 6px rgba(98,29,122,0.2); }
-                    50%      { box-shadow: 0 0 0 5px rgba(232,83,149,0.7), 0 0 0 10px rgba(98,29,122,0.3); }
+                    0%, 100% { box-shadow: 0 0 0 3px rgba(232,83,149,0.5), 0 0 0 7px rgba(98,29,122,0.25); }
+                    50%      { box-shadow: 0 0 0 5px rgba(232,83,149,0.75), 0 0 0 11px rgba(98,29,122,0.35); }
                 }
                 @keyframes am-staggerIn {
                     from { opacity: 0; transform: translateY(14px); }
@@ -89,7 +84,6 @@ const AboutMe = ({ onClose }) => {
                 .am-slide-in-right  { animation: am-slideInRight  .3s cubic-bezier(.4,0,.2,1) forwards; }
                 .am-slide-in-left   { animation: am-slideInLeft   .3s cubic-bezier(.4,0,.2,1) forwards; }
 
-                /* Close button: #621D7A → #FF9071 */
                 .am-close-btn {
                     position: absolute;
                     top: 15px; right: 15px;
@@ -114,47 +108,40 @@ const AboutMe = ({ onClose }) => {
                     animation: am-pulseRing 3s ease-in-out infinite;
                 }
 
-                /* Left panel scrollbar */
-                .am-left-scroll::-webkit-scrollbar { width: 3px; }
-                .am-left-scroll::-webkit-scrollbar-track { background: transparent; }
-                .am-left-scroll::-webkit-scrollbar-thumb { background: rgba(232,83,149,0.3); border-radius: 4px; }
-
-                /* Right panel scrollbar */
                 .am-right-scroll::-webkit-scrollbar { width: 4px; }
                 .am-right-scroll::-webkit-scrollbar-track { background: transparent; }
-                .am-right-scroll::-webkit-scrollbar-thumb { background: rgba(200,175,98,0.3); border-radius: 4px; }
-                .am-right-scroll:hover::-webkit-scrollbar-thumb { background: rgba(200,175,98,0.55); }
+                .am-right-scroll::-webkit-scrollbar-thumb { background: rgba(200,175,98,0.35); border-radius: 4px; }
+                .am-right-scroll:hover::-webkit-scrollbar-thumb { background: rgba(200,175,98,0.6); }
 
                 .am-fact-card {
                     background: rgba(255,255,255,0.05);
-                    border: 1px solid rgba(255,255,255,0.09);
+                    border: 1px solid rgba(255,255,255,0.1);
                     border-radius: 12px;
-                    padding: 12px 14px;
+                    padding: 14px 16px;
                     transition: background .2s, border-color .2s;
                 }
                 .am-fact-card:hover {
-                    background: rgba(98,29,122,0.15);
-                    border-color: rgba(232,83,149,0.25);
+                    background: rgba(98,29,122,0.18);
+                    border-color: rgba(232,83,149,0.28);
                 }
 
                 .am-section-label {
                     color: #C8AF62;
                     font-family: 'Lato', sans-serif;
                     font-weight: 700;
-                    font-size: .68rem;
+                    font-size: .90rem;
                     letter-spacing: .13em;
-                    margin-bottom: 8px;
-                    margin-top: 0;
+                    margin: 0 0 10px 0;
                 }
 
                 .am-resume-btn {
-                    display: flex; align-items: center; justify-content: center; gap: 7px;
+                    display: flex; align-items: center; justify-content: center; gap: 8px;
                     width: 100%;
                     background: linear-gradient(135deg, #621D7A, #E85395);
                     border: none; border-radius: 999px;
-                    padding: 10px 18px;
+                    padding: 11px 18px;
                     color: white;
-                    font-size: .8rem; font-family: 'Lato', sans-serif; font-weight: 700;
+                    font-size: .85rem; font-family: 'Lato', sans-serif; font-weight: 700;
                     cursor: pointer; letter-spacing: .04em;
                     transition: opacity .2s, transform .2s, box-shadow .2s;
                     box-shadow: 0 4px 16px rgba(98,29,122,0.45);
@@ -165,12 +152,12 @@ const AboutMe = ({ onClose }) => {
                 }
 
                 .am-tag {
-                    background: rgba(98,29,122,0.25);
-                    border: 1px solid rgba(232,83,149,0.3);
+                    background: rgba(98,29,122,0.28);
+                    border: 1px solid rgba(232,83,149,0.32);
                     border-radius: 999px;
-                    padding: 3px 10px;
-                    color: rgba(255,255,255,0.8);
-                    font-size: .62rem;
+                    padding: 4px 11px;
+                    color: rgba(255,255,255,0.85);
+                    font-size: .72rem;
                     font-family: 'Lato', sans-serif;
                 }
 
@@ -188,25 +175,23 @@ const AboutMe = ({ onClose }) => {
             {/* Backdrop */}
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
 
-                {/* Gradient border — #621D7A → #E85395 → #FF9071 → #C8AF62 */}
+                {/* Gradient border — same technique as .skills-modal-border */}
                 <div
-                    className={`w-full max-w-3xl rounded-2xl p-0.5 relative ${animateIn ? 'am-modal-enter' : 'am-modal-leave'}`}
+                    className={`w-full max-w-3xl relative ${animateIn ? 'am-modal-enter' : 'am-modal-leave'}`}
                     style={{
-                        background: 'linear-gradient(180deg, #621D7A 0%, #E85395 40%, #FF9071 70%, #C8AF62 100%)'
+                        borderRadius: '12px',
+                        border: '4px solid transparent',
+                        background: 'linear-gradient(#231528, #231528) padding-box, linear-gradient(180deg, #621D7A, #E85395, #FF9071, #C8AF62) border-box',
                     }}
                 >
-                    {/* Inner dark bg — NO overflow-hidden so left panel isn't cut */}
                     <div
-                        className="relative bg-[#231528] rounded-2xl flex"
-                        style={{ height: '580px' }}
+                        className="relative bg-[#231528] rounded-xl"
+                        style={{ height: '600px' }}
                     >
-                        {/* Close button sits above everything */}
                         <button className="am-close-btn" onClick={handleClose}>✕</button>
 
-                        {/* Panel — takes full width/height, clips only at this level */}
                         <div
-                            className={`w-full h-full rounded-2xl overflow-hidden ${panelClass}`}
-                            style={{ display: 'flex' }}
+                            className={`w-full h-full rounded-xl overflow-hidden flex ${panelClass}`}
                         >
                             {showCV
                                 ? <CvResume onBack={handleBackToAbout} />
@@ -220,179 +205,154 @@ const AboutMe = ({ onClose }) => {
     )
 }
 
-/* ── About Panel — extracted so it can be a proper component with its own state ── */
 const AboutPanel = ({ onViewResume }) => {
     return (
         <div className="flex w-full h-full">
 
-            {/* ── LEFT: ID card — scrollable ── */}
+            {/* ── LEFT: ID card — fixed layout, no scroll needed ── */}
             <div
-                className="am-left-scroll shrink-0 overflow-y-auto"
                 style={{
-                    width: '210px',
-                    background: 'linear-gradient(180deg, #1c0d2a 0%, #231528 55%, #2b1438 100%)',
-                    borderRight: '1px solid rgba(255,255,255,0.07)',
+                    width: '230px',
+                    flexShrink: 0,
+                    background: 'linear-gradient(180deg, #1c0d2a 0%, #231528 60%, #2b1438 100%)',
+                    borderRight: '1px solid rgba(255,255,255,0.08)',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    gap: '14px',
-                    padding: '1.75rem 1.1rem 1.5rem',
-                    position: 'relative'
+                    /* Top stripe is a border, not an absolute/sticky element */
+                    borderTop: '4px solid transparent',
+                    backgroundImage: 'linear-gradient(180deg, #1c0d2a 0%, #231528 60%, #2b1438 100%)',
+                    backgroundClip: 'padding-box',
+                    position: 'relative',
+                    overflow: 'hidden'
                 }}
             >
-                {/* Top accent stripe */}
+
                 <div style={{
-                    position: 'sticky', top: 0, left: 0,
-                    width: 'calc(100% + 2.2rem)', marginLeft: '-1.1rem', marginTop: '-1.75rem',
-                    marginBottom: '0',
-                    height: '4px', flexShrink: 0,
-                    background: 'linear-gradient(90deg, #621D7A, #E85395, #FF9071, #C8AF62)'
-                }} />
+                    flex: 1,
+                    overflowY: 'auto',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '16px',
+                    padding: '1.5rem 1.2rem 1.5rem',
+                    scrollbarWidth: 'none'
+                }}>
 
-                {/* Profile pic */}
-                <div
-                    className="am-profile-ring"
-                    style={{
-                        marginTop: '0.25rem',
-                        width: '88px', height: '88px',
-                        borderRadius: '50%', overflow: 'hidden', flexShrink: 0,
-                        background: 'linear-gradient(135deg, #621D7A, #E85395)'
-                    }}
-                >
-                    {/* Swap this div for: <img src={profilePic} alt="profile" style={{width:'100%',height:'100%',objectFit:'cover'}} /> */}
-                    <div style={{
-                        width: '100%', height: '100%',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: 'rgba(255,255,255,0.35)', fontSize: '.62rem',
-                        fontFamily: 'Lato, sans-serif', textAlign: 'center'
-                    }}>profile pic</div>
-                </div>
+                    {/* Profile pic */}
+                    <div
+                        className="am-profile-ring"
+                        style={{
+                            width: '100px', height: '100px',
+                            borderRadius: '50%', overflow: 'hidden', flexShrink: 0,
+                            background: 'linear-gradient(135deg, #621D7A, #E85395)'
+                        }}
+                    >
+                        <img src={profilePic} alt="profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
 
-                {/* Name block */}
-                <div style={{ textAlign: 'center', width: '100%' }}>
-                    <p style={{ color: '#C8AF62', fontSize: '.58rem', fontFamily: 'Lato, sans-serif', letterSpacing: '.14em', margin: '0 0 3px' }}>
-                        KNOWN AS
-                    </p>
-                    <h2 style={{ color: 'white', fontSize: '1.55rem', fontFamily: '"Just Another Hand", cursive', lineHeight: 1, margin: 0 }}>
-                        Kristar
-                    </h2>
-                    <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '.66rem', fontFamily: 'Lato, sans-serif', margin: '4px 0 0', lineHeight: 1.4 }}>
-                        Dhenize Krista Faith C. Lopez
-                    </p>
-                </div>
-
-                {/* Divider */}
-                <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.08)', flexShrink: 0 }} />
-
-                {/* Contact */}
-                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    <div>
-                        <p style={{ color: '#C8AF62', fontSize: '.58rem', fontFamily: 'Lato, sans-serif', letterSpacing: '.1em', margin: '0 0 2px' }}>EMAIL</p>
-                        <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: '.66rem', fontFamily: 'Lato, sans-serif', wordBreak: 'break-all', lineHeight: 1.5, margin: 0 }}>
-                            dhenize.lopez11@gmail.com
+                    {/* Name block */}
+                    <div style={{ textAlign: 'center', width: '100%' }}>
+                        <h2 style={{ color: 'white', fontSize: '1.9rem', fontFamily: '"Just Another Hand", cursive', lineHeight: 1, margin: 0 }}>
+                            Kristar
+                        </h2>
+                        <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '.75rem', fontFamily: 'Lato, sans-serif', margin: '5px 0 0', lineHeight: 1.45 }}>
+                            Dhenize Krista Faith<br />C. Lopez
                         </p>
                     </div>
-                    <div>
-                        <p style={{ color: '#C8AF62', fontSize: '.58rem', fontFamily: 'Lato, sans-serif', letterSpacing: '.1em', margin: '0 0 2px' }}>LOCATION</p>
-                        <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: '.66rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.5, margin: 0 }}>
-                            Brgy. Malagasang 1-F,<br />Imus, Cavite
-                        </p>
+
+                    {/* Divider */}
+                    <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.1)', flexShrink: 0 }} />
+
+                    {/* Contact */}
+                    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                        <div>
+                            <p style={{ color: '#C8AF62', fontSize: '.68rem', fontFamily: 'Lato, sans-serif', letterSpacing: '.1em', margin: '0 0 3px', fontWeight: 700 }}>EMAIL</p>
+                            <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '.75rem', fontFamily: 'Lato, sans-serif', wordBreak: 'break-all', lineHeight: 1.5, margin: 0 }}>
+                                dhenize.lopez11@gmail.com
+                            </p>
+                        </div>
+                        <div>
+                            <p style={{ color: '#C8AF62', fontSize: '.68rem', fontFamily: 'Lato, sans-serif', letterSpacing: '.1em', margin: '0 0 3px', fontWeight: 700 }}>LOCATION</p>
+                            <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '.75rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.5, margin: 0 }}>
+                                Brgy. Malagasang 1-F,<br />Imus, Cavite
+                            </p>
+                        </div>
                     </div>
+
+                    {/* Divider */}
+                    <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.1)', flexShrink: 0 }} />
+
+                    {/* Role tags */}
+                    <div style={{ width: '100%', display: 'flex', flexWrap: 'wrap', gap: '6px', justifyContent: 'center' }}>
+                        {['IT Student', 'Fullstack Developer', 'QA', 'Illustrator', 'Content Creator'].map(tag => (
+                            <span key={tag} className="am-tag">{tag}</span>
+                        ))}
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.1)', flexShrink: 0 }} />
+
+                    {/* View Resume button */}
+                    <button className="am-resume-btn" onClick={onViewResume}>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                        </svg>
+                        View Resume
+                    </button>
+
                 </div>
-
-                {/* Divider */}
-                <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.08)', flexShrink: 0 }} />
-
-                {/* Role tags */}
-                <div style={{ width: '100%', display: 'flex', flexWrap: 'wrap', gap: '5px', justifyContent: 'center' }}>
-                    {['IT Student', 'Frontend Dev', 'UI/UX', 'Digital Artist'].map(tag => (
-                        <span key={tag} className="am-tag">{tag}</span>
-                    ))}
-                </div>
-
-                {/* Divider */}
-                <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.08)', flexShrink: 0 }} />
-
-                {/* View Resume button — always visible at bottom of left panel */}
-                <button className="am-resume-btn" onClick={onViewResume}>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                    </svg>
-                    View Resume
-                </button>
             </div>
 
             {/* ── RIGHT: Bio — scrollable ── */}
             <div
                 className="am-right-scroll flex-1 overflow-y-auto"
-                style={{ padding: '1.75rem 1.6rem 1.75rem 1.5rem' }}
+                style={{ padding: '1.8rem 1.6rem 1.8rem 1.5rem' }}
             >
-                <div className="am-stagger" style={{ display: 'flex', flexDirection: 'column', gap: '1.3rem' }}>
+                <div className="am-stagger" style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
 
                     {/* Header */}
                     <div>
-                        <p style={{ color: '#C8AF62', fontSize: '.65rem', fontFamily: 'Lato, sans-serif', letterSpacing: '.15em', margin: '0 0 2px' }}>
-                            ABOUT ME
-                        </p>
-                        <h1 style={{ color: 'white', fontSize: '2.5rem', fontFamily: '"Just Another Hand", cursive', lineHeight: 1, margin: 0 }}>
-                            Who is Dhenize?
+                        <h1 style={{ color: 'white', fontSize: '2.6rem', fontFamily: '"Just Another Hand", cursive', lineHeight: 1.05, margin: 0 }}>
+                            About Me
                         </h1>
                     </div>
 
                     {/* Bio */}
                     <div className="am-fact-card">
-                        <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '.82rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.75, margin: 0 }}>
-                            She was born on <span style={{ color: '#C8AF62' }}>[BIRTHDAY]</span> in the City of Manila. She is the oldest daughter and the first among the two children of <span style={{ color: '#C8AF62' }}>[PARENTS]</span>.
+                        <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '.88rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.8, margin: 0 }}>
+                            She was born on <span style={{ color: '#C8AF62', fontWeight: 600 }}>November 24, 2004</span> in the City of Manila. She is the oldest daughter and the first among the two children of <span style={{ color: '#C8AF62', fontWeight: 600 }}>Christopher R. Lopez and Desita C. Lopez</span>.
                         </p>
                     </div>
 
-                    {/* Education */}
-                    <div>
-                        <p className="am-section-label">EDUCATION</p>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '7px' }}>
-                            {[
-                                { year: '2016', school: 'Malagasang II Elementary School', level: 'Primary Education', loc: 'Imus City, Cavite' },
-                                { year: '2020', school: 'Gen. Tomas Mascardo National High School', level: 'Secondary Education', loc: 'Imus City, Cavite' },
-                                { year: '2022', school: 'Informatics College Cavite – Imus', level: 'Senior High School', loc: 'Imus, Cavite' },
-                                { year: '2026 ✦', school: 'Cavite State University — Imus Campus', level: 'BS Information Technology', loc: '4th Year · Expected 2026', current: true },
-                            ].map((e, i) => (
-                                <div
-                                    key={i}
-                                    className="am-fact-card"
-                                    style={{
-                                        display: 'flex', gap: '12px', alignItems: 'flex-start',
-                                        ...(e.current ? { borderColor: 'rgba(232,83,149,0.35)', background: 'rgba(98,29,122,0.15)' } : {})
-                                    }}
-                                >
-                                    <span style={{
-                                        flexShrink: 0,
-                                        color: e.current ? '#C8AF62' : 'rgba(255,255,255,0.3)',
-                                        fontSize: '.63rem', fontFamily: 'Lato, sans-serif',
-                                        fontWeight: 700, letterSpacing: '.03em',
-                                        marginTop: '2px', minWidth: '38px'
-                                    }}>{e.year}</span>
-                                    <div>
-                                        <p style={{ color: 'white', fontSize: '.81rem', fontFamily: 'Lato, sans-serif', fontWeight: 600, margin: 0, lineHeight: 1.35 }}>{e.school}</p>
-                                        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '.7rem', fontFamily: 'Lato, sans-serif', margin: '2px 0 0' }}>{e.level} · {e.loc}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                    {/* Education paragraph */}
+                    <div className="am-fact-card">
+                        <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '.88rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.8, margin: 0 }}>
+                            She finished her primary education at Malagasang II Elementary School in Imus City, Cavite in 2016; her secondary education at Gen. Tomas Mascardo National High School in Imus City, Cavite in 2020; and her senior high school education at Informatics College Cavite – Imus in 2022.
+                        </p>
+                    </div>
+
+                    {/* Current education highlight */}
+                    <div className="am-fact-card" style={{ borderColor: 'rgba(232,83,149,0.35)', background: 'rgba(98,29,122,0.15)' }}>
+                        <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '.88rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.8, margin: 0 }}>
+                            Currently, she is in her fourth year of college at Cavite State University — Imus Campus, under the program of Bachelor of Science in Information Technology, and she expects to finish her studies in 2026.
+                        </p>
                     </div>
 
                     {/* Facts */}
-                    <div>
+                    <div style = {{marginTop: '20px'}}>
                         <p className="am-section-label">FACTS ABOUT KRISTAR PORTFOLIO</p>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '7px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             <div className="am-fact-card">
-                                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '.8rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.75, margin: 0 }}>
-                                    <span style={{ color: '#C8AF62', fontWeight: 700 }}>"Kristar"</span> is Dhenize's artist name created during senior high school. Derived from her second name <span style={{ color: '#C8AF62' }}>Krista</span> and her favorite shape — the <span style={{ color: '#C8AF62' }}>star</span> — born from her fascination with celestial bodies and phenomena.
+                                <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '.86rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.8, margin: 0 }}>
+                                    <span style={{ color: '#C8AF62', fontWeight: 700 }}>"Kristar"</span> is Dhenize's artist name created during senior high school. It is derived from her second name <span style={{ color: '#C8AF62', fontWeight: 600 }}>Krista</span>, combined with her favorite shape — the <span style={{ color: '#C8AF62', fontWeight: 600 }}>star</span> — due to her fascination in studying celestial bodies and phenomena.
                                 </p>
                             </div>
                             <div className="am-fact-card">
-                                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '.8rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.75, margin: 0 }}>
-                                    Built with <span style={{ color: '#C8AF62' }}>React JS (Vite)</span>, <span style={{ color: '#C8AF62' }}>Tailwind CSS</span>, and <span style={{ color: '#C8AF62' }}>JavaScript</span>. Deployed on <span style={{ color: '#C8AF62' }}>Vercel</span> via GitHub.
+                                <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '.86rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.8, margin: 0 }}>
+                                    The tech stack used to make this portfolio: <span style={{ color: '#C8AF62', fontWeight: 600 }}>React JS (Vite)</span>, <span style={{ color: '#C8AF62', fontWeight: 600 }}>Tailwind CSS</span>, and <span style={{ color: '#C8AF62', fontWeight: 600 }}>JavaScript</span>. Its GitHub repository is deployed on <span style={{ color: '#C8AF62', fontWeight: 600 }}>Vercel</span>.
                                 </p>
                             </div>
                         </div>
