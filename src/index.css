@@ -2,11 +2,11 @@
 
 /* CUSTOM CURSOR - 45x45 pixels */
 * {
-  cursor: url('/rocket_pointer45.png') 22 22, auto !important;
+  cursor: url('/rocket_pointer.png') 22 22, auto !important;
 }
 
 a, button, [role="button"], input[type="submit"], input[type="button"], .clickable {
-  cursor: url('/rocket_pointer45.png') 22 22, pointer !important;
+  cursor: url('/rocket_pointer.png') 22 22, pointer !important;
 }
 
 /* HOMEPAGE */

@@ -163,11 +163,17 @@ import videos from '../assets/icons/media.png'
 
 const PROJECTS_PER_PAGE = 6
 
+// ── helper: wrap a logo path into the { icon, name } shape project_info expects ──
+const tech = (icon, name) => ({ icon, name })
+
 const Projects = () => {
     const [selectedCategory, setSelectedCategory] = useState('All Projects');
     const [selectedProject, setSelectedProject] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    // Animation state: key changes on every page/category switch → re-triggers CSS animation
+    const [gridKey, setGridKey] = useState(0);
 
     const dropdownRef = useRef(null);
 
@@ -191,7 +197,7 @@ const Projects = () => {
             coverImage: comw1,
             additionalPics: [comw2],
             description: 'A comprehensive inventory management system designed for warehouse operations. Features include real-time stock tracking, supplier management, and automated reordering.',
-            techStack: [Html, Css, Js, Reactjs, Tailwind, Firebase],
+            techStack: [tech(Html,'HTML'), tech(Css,'CSS'), tech(Js,'JavaScript'), tech(Reactjs,'React'), tech(Tailwind,'Tailwind'), tech(Firebase,'Firebase')],
             contributions: [
                 'Designed and implemented the entire user interface',
                 'Developed real-time inventory tracking functionality',
@@ -206,7 +212,7 @@ const Projects = () => {
             coverImage: eduq1,
             additionalPics: [eduq2, eduq3, eduq4, eduq5],
             description: 'A digital queueing system for educational institutions to manage student services efficiently. Reduces waiting time and improves service delivery.',
-            techStack: [Html, Css, Js, Reactjs, Tailwind, Firebase],
+            techStack: [tech(Html,'HTML'), tech(Css,'CSS'), tech(Js,'JavaScript'), tech(Reactjs,'React'), tech(Tailwind,'Tailwind'), tech(Firebase,'Firebase')],
             contributions: [
                 'Built the queue management algorithm',
                 'Designed real-time notification system',
@@ -221,7 +227,7 @@ const Projects = () => {
             coverImage: fit4s1,
             additionalPics: [fit4s2, fit4s3, fit4s4, fit4s5],
             description: 'Web-based platform for managing school uniform orders, inventory, and distribution. Streamlines the entire uniform procurement process.',
-            techStack: [Html, Css, Js, Reactjs, Tailwind, Firebase],
+            techStack: [tech(Html,'HTML'), tech(Css,'CSS'), tech(Js,'JavaScript'), tech(Reactjs,'React'), tech(Tailwind,'Tailwind'), tech(Firebase,'Firebase')],
             contributions: [
                 'Developed order management system',
                 'Created inventory tracking module',
@@ -236,7 +242,7 @@ const Projects = () => {
             coverImage: jel1,
             additionalPics: [jel2, jel3, jel4, jel5],
             description: 'A modern e-commerce platform featuring product catalog, shopping cart, and secure checkout. Built with focus on user experience and performance.',
-            techStack: [Html, Css, Js, Reactjs, Tailwind, Firebase],
+            techStack: [tech(Html,'HTML'), tech(Css,'CSS'), tech(Js,'JavaScript'), tech(Reactjs,'React'), tech(Tailwind,'Tailwind'), tech(Firebase,'Firebase')],
             contributions: [
                 'Implemented product catalog system',
                 'Developed shopping cart functionality',
@@ -251,7 +257,7 @@ const Projects = () => {
             coverImage: fit4m1,
             additionalPics: [fit4m2, fit4m3, fit4m4, fit4m5],
             description: 'Mobile companion app for the Fit4School uniform management system. Allows students and parents to order and track uniforms on-the-go.',
-            techStack: [Js, Reactjs, Expo, Firebase],
+            techStack: [tech(Js,'JavaScript'), tech(Reactjs,'React Native'), tech(Expo,'Expo'), tech(Firebase,'Firebase')],
             contributions: [
                 'Developed cross-platform mobile interface',
                 'Implemented push notifications',
@@ -266,7 +272,7 @@ const Projects = () => {
             coverImage: pdc1,
             additionalPics: [pdc2],
             description: 'A comprehensive POS system for a cafe, handling orders, inventory, and sales reporting. Features include table management and receipt printing.',
-            techStack: [Java, Mysql],
+            techStack: [tech(Java,'Java'), tech(Mysql,'MySQL')],
             contributions: [
                 'Built complete POS interface',
                 'Developed inventory management',
@@ -281,7 +287,7 @@ const Projects = () => {
             coverImage: alv1,
             additionalPics: [alv2],
             description: 'Desktop application for managing dental clinic operations including patient records, appointments, and billing.',
-            techStack: [Java, Mysql],
+            techStack: [tech(Java,'Java'), tech(Mysql,'MySQL')],
             contributions: [
                 'Designed patient management system',
                 'Developed appointment scheduling',
@@ -296,7 +302,7 @@ const Projects = () => {
             coverImage: ff1,
             additionalPics: [ff2, ff3],
             description: 'Fast food POS system with quick order processing and inventory management capabilities.',
-            techStack: [Java, Mysql],
+            techStack: [tech(Java,'Java'), tech(Mysql,'MySQL')],
             contributions: [
                 'Developed fast order entry system',
                 'Created combo meal management',
@@ -311,7 +317,7 @@ const Projects = () => {
             coverImage: lcs1,
             additionalPics: [lcs2],
             description: 'POS system specialized for school supplies retail, featuring seasonal product management and student discounts.',
-            techStack: [Java, Mysql],
+            techStack: [tech(Java,'Java'), tech(Mysql,'MySQL')],
             contributions: [
                 'Built product categorization system',
                 'Developed discount management',
@@ -326,7 +332,7 @@ const Projects = () => {
             coverImage: trus1,
             additionalPics: [trus2, trus3],
             description: 'Hardware store point of sale system with support for bulk purchases and contractor accounts.',
-            techStack: [Java, Mysql],
+            techStack: [tech(Java,'Java'), tech(Mysql,'MySQL')],
             contributions: [
                 'Developed bulk order processing',
                 'Created customer account management',
@@ -356,7 +362,7 @@ const Projects = () => {
             coverImage: draw1,
             additionalPics: [draw2, draw3],
             description: 'Collection of digital illustrations featuring character art and original designs.',
-            techStack: [Medi],
+            techStack: [tech(Medi,'MediBang')],
             contributions: [
                 'Created original character designs',
                 'Developed unique art style',
@@ -371,7 +377,7 @@ const Projects = () => {
             coverImage: pixel1,
             additionalPics: [pixel2, pixel3],
             description: 'Various pixel art pieces showcasing retro gaming aesthetics and character sprites.',
-            techStack: [Medi],
+            techStack: [tech(Medi,'MediBang')],
             contributions: [
                 'Created pixel character sprites',
                 'Designed tile sets',
@@ -386,7 +392,7 @@ const Projects = () => {
             coverImage: kstar1,
             additionalPics: [kstar2, kstar3],
             description: 'Step-by-step process of creating the portfolio mascot character from sketch to final render.',
-            techStack: [Medi],
+            techStack: [tech(Medi,'MediBang')],
             contributions: [
                 'Developed character concept',
                 'Created clean line art',
@@ -401,7 +407,7 @@ const Projects = () => {
             coverImage: sch1,
             additionalPics: [],
             description: 'Art projects created for school requirements and academic presentations.',
-            techStack: [Canva, Medi],
+            techStack: [tech(Canva,'Canva'), tech(Medi,'MediBang')],
             contributions: [
                 'Created educational illustrations',
                 'Designed presentation graphics',
@@ -416,7 +422,7 @@ const Projects = () => {
             coverImage: cwm1,
             additionalPics: [cwm2, cwm3],
             description: 'Marketing posters and promotional materials for the COMWARE project.',
-            techStack: [Canva, Figma],
+            techStack: [tech(Canva,'Canva'), tech(Figma,'Figma')],
             contributions: [
                 'Designed promotional posters',
                 'Created brand identity materials',
@@ -431,7 +437,7 @@ const Projects = () => {
             coverImage: kas1,
             additionalPics: [kas2, kas3],
             description: 'Publication design for a historical project featuring Filipino heritage and culture.',
-            techStack: [Canva],
+            techStack: [tech(Canva,'Canva')],
             contributions: [
                 'Designed publication layout',
                 'Created cover and back designs',
@@ -446,7 +452,7 @@ const Projects = () => {
             coverImage: oth1,
             additionalPics: [oth2, oth3, oth4, oth5],
             description: 'Various design projects including collages, family trees, endorsements, and ID mockups.',
-            techStack: [Canva, Figma],
+            techStack: [tech(Canva,'Canva'), tech(Figma,'Figma')],
             contributions: [
                 'Created photo collages',
                 'Designed family tree visualizations',
@@ -461,7 +467,7 @@ const Projects = () => {
             coverImage: svid1,
             additionalPics: [],
             description: 'Opening video for school golden anniversary celebration featuring motion graphics and transitions.',
-            techStack: [Capcut],
+            techStack: [tech(Capcut,'CapCut')],
             contributions: [
                 'Created motion graphics',
                 'Developed video transitions',
@@ -476,7 +482,7 @@ const Projects = () => {
             coverImage: pvids[0],
             additionalPics: [pvids[1], pvids[2]],
             description: 'Animated Instagram story templates for personal branding and social media content.',
-            techStack: [Capcut, Canva],
+            techStack: [tech(Capcut,'CapCut'), tech(Canva,'Canva')],
             contributions: [
                 'Designed story templates',
                 'Created animations',
@@ -491,7 +497,7 @@ const Projects = () => {
             coverImage: tiktok[0],
             additionalPics: [tiktok[1]],
             description: 'Series of TikTok videos featuring creative editing and storytelling.',
-            techStack: [Capcut],
+            techStack: [tech(Capcut,'CapCut')],
             contributions: [
                 'Created video concepts',
                 'Edited video content',
@@ -547,12 +553,14 @@ const Projects = () => {
     useEffect(() => {
         setCurrentPage(1);
         setIsDropdownOpen(false);
+        setGridKey(k => k + 1);
     }, [selectedCategory]);
 
     useEffect(() => {
         if (currentPage > totalPages) {
             setCurrentPage(totalPages);
         }
+        setGridKey(k => k + 1);
     }, [currentPage, totalPages]);
 
     useEffect(() => {
@@ -595,6 +603,111 @@ const Projects = () => {
 
     return (
         <div className='w-full min-h-screen night-bg px-6 sm:px-10 md:px-14 xl:px-16 pt-8 pb-16'>
+
+            <style>{`
+                @keyframes proj-card-in {
+                    from { opacity: 0; transform: translateY(32px) scale(0.96); }
+                    to   { opacity: 1; transform: translateY(0) scale(1); }
+                }
+                @keyframes proj-shimmer {
+                    0%   { background-position: -200% center; }
+                    100% { background-position:  200% center; }
+                }
+                @keyframes proj-star-spin {
+                    from { transform: rotate(0deg) scale(1); }
+                    50%  { transform: rotate(180deg) scale(1.25); }
+                    to   { transform: rotate(360deg) scale(1); }
+                }
+                @keyframes proj-title-glow-in {
+                    from { opacity: 0; transform: translateY(-18px); }
+                    to   { opacity: 1; transform: translateY(0); }
+                }
+
+                /* Fixed height so all cards match — no more uneven boxes */
+                .proj-card {
+                    opacity: 0;
+                    animation: proj-card-in 0.55s cubic-bezier(.22,1,.36,1) forwards;
+                    height: 340px;
+                }
+
+                /* Lift + purple glow shadow on hover */
+                .proj-card:hover {
+                    transform: translateY(-7px) scale(1.018) !important;
+                    box-shadow: 0 18px 44px rgba(151,78,195,0.38), 0 4px 14px rgba(0,0,0,0.45) !important;
+                    transition: transform .3s ease, box-shadow .3s ease !important;
+                }
+
+                /* Inner card: full height, flex column, yellow border stays always */
+                .proj-inner-card {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    /* NOTE: no border-color transition here — stays #FFD21F */
+                }
+
+                /* Body: fills remaining height; subtle background shift on hover */
+                .proj-inner-body {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1.25rem;
+                    background: linear-gradient(to bottom, #31255A, #3D2E67, #735D74);
+                    transition: background 0.35s ease;
+                }
+                /* Hover brightens the body slightly — no jarring colour jump */
+                .proj-card:hover .proj-inner-body {
+                    background: linear-gradient(to bottom, #38306a, #483d7a, #826b84);
+                }
+
+                /* Shimmer sweep over cover image on hover */
+                .proj-img-wrap {
+                    position: relative;
+                    overflow: hidden;
+                    flex-shrink: 0;
+                }
+                .proj-img-wrap::after {
+                    content: '';
+                    position: absolute; inset: 0;
+                    background: linear-gradient(
+                        110deg,
+                        transparent 35%,
+                        rgba(227,208,149,0.14) 50%,
+                        transparent 65%
+                    );
+                    background-size: 200% 100%;
+                    opacity: 0;
+                    transition: opacity .3s;
+                    pointer-events: none;
+                }
+                .proj-card:hover .proj-img-wrap::after {
+                    opacity: 1;
+                    animation: proj-shimmer 1.1s linear infinite;
+                }
+
+                /* Deco star spins on hover */
+                .proj-deco-star { transition: transform .5s ease; }
+                .proj-card:hover .proj-deco-star {
+                    animation: proj-star-spin .7s ease forwards;
+                }
+
+                /* Category badge gold glow */
+                .proj-badge { transition: text-shadow .25s; }
+                .proj-card:hover .proj-badge {
+                    text-shadow: 0 0 10px rgba(255,210,31,0.7);
+                }
+
+                /* Title warm glow */
+                .proj-title { transition: text-shadow .3s; }
+                .proj-card:hover .proj-title {
+                    text-shadow: 0 0 14px rgba(227,208,149,0.5);
+                }
+
+                /* Page title entrance */
+                .proj-page-title {
+                    animation: proj-title-glow-in .7s cubic-bezier(.22,1,.36,1) both;
+                }
+            `}</style>
+
             {/* Meteor Shower */}
             <div className="meteor-container">
                 {meteorStyles.map((meteor) => (
@@ -610,15 +723,13 @@ const Projects = () => {
                     ></div>
                 ))}
             </div>
-            
+
             {/* PAGE TITLE */}
-            <div className='justify-center items-center flex-col flex w-full py-15 my-5'>
+            <div className='justify-center items-center flex-col flex w-full py-15 my-5 proj-page-title'>
                 <h1 className="text-white text-6xl font-['Just_Another_Hand'] text-center -mb-3">
                     GALLERY
                 </h1>
-
                 <img src={starline} alt="starline" className='w-45 h-6 justify-center' />
-
                 <h5 className='font-lato text-white text-center italic ml-4 -mt-3'>
                     creativity starts here
                 </h5>
@@ -627,24 +738,19 @@ const Projects = () => {
             {/* CATEGORY HEADER & FILTER */}
             <div className='w-full mb-8'>
                 <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6'>
-                    {/* Category Title */}
                     <h2 className='text-[#FFD21F] text-2xl md:text-3xl font-lato font-black uppercase'>
                         {selectedCategory === 'All Projects' ? 'ALL PROJECTS' : selectedCategory.toUpperCase()}
                     </h2>
 
-                    {/* Modern Filter */}
                     <div className='relative' ref={dropdownRef}>
                         <button
                             type='button'
                             onClick={() => setIsDropdownOpen((prev) => !prev)}
                             className='flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-5 py-2.5 border border-white/20 hover:bg-white/15 transition-all'
                         >
-                            <img src={starline} alt="filter-line" className='w-16 h-4 object-contain' />
-
                             <span className='text-[#FFD21F] text-sm font-lato font-medium whitespace-nowrap'>
                                 {selectedCategory}
                             </span>
-
                             <svg
                                 className={`w-4 h-4 text-[#FFD21F] transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
                                 fill='none'
@@ -659,7 +765,6 @@ const Projects = () => {
                             <div className='absolute right-0 mt-2 w-56 rounded-2xl overflow-hidden border border-white/15 bg-[#22153A]/95 backdrop-blur-md shadow-2xl z-30'>
                                 {combobox.map((option) => {
                                     const isActive = option.label === selectedCategory;
-
                                     return (
                                         <button
                                             key={option.id}
@@ -682,25 +787,29 @@ const Projects = () => {
             </div>
 
             {/* PROJECTS GRID */}
-            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-7 mb-12'>
-                {paginatedProjects.map((project) => (
+            <div
+                key={gridKey}
+                className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-7 mb-12'
+            >
+                {paginatedProjects.map((project, index) => (
                     <div
                         key={project.id}
                         onClick={() => setSelectedProject(project)}
-                        className='relative cursor-pointer transition-transform duration-300 hover:scale-[1.02]'
+                        className='proj-card relative cursor-pointer'
+                        style={{ animationDelay: `${index * 0.09}s` }}
                     >
                         {/* Star decoration */}
                         <img
                             src={star}
                             alt="card star"
-                            className='absolute -top-3 -left-2.5 w-7 h-7 z-10 object-contain'
+                            className='proj-deco-star absolute -top-3 -left-2.5 w-7 h-7 z-10 object-contain'
                         />
 
-                        {/* Card */}
-                        <div className='rounded-lg border-t-4 border-[#FFD21F] overflow-hidden shadow-lg'>
-                            <div className='min-h-67.5 px-6 pt-6 pb-7 bg-linear-to-b from-[#31255A] via-[#3D2E67] to-[#735D74]'>
+                        {/* border-[#FFD21F] — yellow, no transition, stays yellow always */}
+                        <div className='proj-inner-card rounded-lg border-t-4 border-[#FFD21F] overflow-hidden shadow-lg'>
+                            <div className='proj-inner-body'>
                                 {/* Cover Image */}
-                                <div className='w-full h-44 overflow-hidden mb-4 bg-black/20 rounded'>
+                                <div className='proj-img-wrap w-full h-44 mb-3 bg-black/20 rounded'>
                                     {isVideoFile(project.coverImage) ? (
                                         <video
                                             src={project.coverImage}
@@ -719,19 +828,19 @@ const Projects = () => {
                                 </div>
 
                                 {/* Category */}
-                                <div className='flex items-center gap-2 mb-2.5'>
+                                <div className='flex items-center gap-2 mb-2'>
                                     <img
                                         src={categoryIcons[project.category]}
                                         alt={project.category}
-                                        className='w-4 h-4 object-contain'
+                                        className='w-4 h-4 object-contain shrink-0'
                                     />
-                                    <p className='text-[#FFD21F] text-sm font-lato font-bold leading-none'>
+                                    <p className='proj-badge text-[#FFD21F] text-sm font-lato font-bold leading-none'>
                                         {categoryDisplay[project.category] || project.category}
                                     </p>
                                 </div>
 
                                 {/* Title */}
-                                <h3 className='text-white font-lato font-bold text-base md:text-lg leading-tight'>
+                                <h3 className='proj-title text-white font-lato font-bold text-base md:text-lg leading-tight'>
                                     {project.title}
                                 </h3>
                             </div>
@@ -743,19 +852,17 @@ const Projects = () => {
             {/* PAGINATION */}
             {totalPages > 1 && (
                 <div className='w-full flex justify-center items-center gap-8 mt-10'>
-                    {/* Previous Button */}
                     <button
                         type='button'
                         onClick={goToPreviousPage}
                         disabled={currentPage === 1}
-                        className='text-[#D8C1A9] text-5xl leading-none disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 hover:text-white hover:scale-110 active:scale-95'
+                        className='text-[#ffffff] text-5xl leading-none transition-all duration-200 hover:text-white hover:scale-110 active:scale-95'
                         aria-label='Previous page'
                     >
                         ‹
                     </button>
 
-                    {/* Page Indicators */}
-                    <div className='flex items-center gap-5'>
+                    <div className='flex items-center justify-center gap-2'>
                         {Array.from({ length: totalPages }, (_, index) => {
                             const page = index + 1;
                             const isActive = page === currentPage;
@@ -773,7 +880,7 @@ const Projects = () => {
                                         <img
                                             src={whitestar}
                                             alt={`Current page ${page}`}
-                                            className='w-full h-full object-contain'
+                                            className='w-13 h-13 object-contain'
                                         />
                                         <span className='absolute inset-0 flex items-center justify-center text-[#6D2E8E] font-lato font-black text-xl'>
                                             {page}
@@ -787,19 +894,18 @@ const Projects = () => {
                                     key={page}
                                     type='button'
                                     onClick={() => handlePageClick(page)}
-                                    className='w-4 h-4 rounded-full bg-[#D8C1A9] transition-all duration-200 hover:bg-white hover:scale-125 active:scale-100'
+                                    className='w-3 h-3 rounded-full bg-[#fff2e4] transition-all duration-200 hover:bg-white hover:scale-125 active:scale-90'
                                     aria-label={`Go to page ${page}`}
                                 />
                             );
                         })}
                     </div>
 
-                    {/* Next Button */}
                     <button
                         type='button'
                         onClick={goToNextPage}
                         disabled={currentPage === totalPages}
-                        className='text-[#D8C1A9] text-5xl leading-none disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 hover:text-white hover:scale-110 active:scale-95'
+                        className='text-[#ffffff] text-5xl leading-none transition-all duration-200 hover:text-white hover:scale-110 active:scale-95'
                         aria-label='Next page'
                     >
                         ›

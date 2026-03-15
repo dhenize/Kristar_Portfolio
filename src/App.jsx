@@ -10,21 +10,26 @@ import Projects from './pages/projects.jsx'
 import Header from './components/header.jsx'
 import Footer from './components/footer.jsx'
 import CursorTrail from './components/cursortrail.jsx'
+import AboutMe from './components/home/aboutme.jsx'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showAboutMe, setShowAboutMe] = useState(false)
 
   return (
     <>
       <Router>
         <CursorTrail />
-        <Header />
+        <Header onAboutMeClick={() => setShowAboutMe(true)} />
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/projects' element={<Projects />} />
         </Routes>
         <Footer />
+
+        {showAboutMe && (
+          <AboutMe onClose={() => setShowAboutMe(false)} />
+        )}
       </Router>
     </>
   )

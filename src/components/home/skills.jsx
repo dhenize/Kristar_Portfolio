@@ -373,7 +373,7 @@ const Skills = ({ onClose }) => {
                             >
                                 <div className='constellation-panel-header'>
                                     <button className='back-icon' onClick={handleBack} aria-label='Back to galaxies'>
-                                        ←
+                                        ‹
                                     </button>
 
                                     <h3 className='font-["Just_Another_Hand"] text-white constellation-title'>
