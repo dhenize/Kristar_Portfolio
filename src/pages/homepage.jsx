@@ -115,7 +115,7 @@ const Homepage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#332837]">
       {/* COVER PAGE */}
-      <div className="flex w-full h-screen sunset-bg relative overflow-visible">
+      <div className="flex w-full min-h-screen sunset-bg relative overflow-visible flex-col md:flex-row">
         {/* Meteor Shower */}
         <div className="meteor-container">
           {[...Array(20)].map((_, i) => (
@@ -127,78 +127,85 @@ const Homepage = () => {
             }}></div>
           ))}
         </div>
-        {/* Drawing Container */}
-        <div className="flex justify-center items-end p-15 relative z-10">
+
+        {/* Drawing Container — desktop: original layout (left side, overhangs into next section) */}
+        <div className="hidden md:flex justify-center items-end p-15 relative z-10">
           <img src={mydrawing}
             className='w-130 relative'
             style={{ bottom: '-20%' }}
           />
         </div>
+
         {/* Cover Texts */}
-        <div className="flex flex-col justify-center ml-10 space-y-10 p-10 relative z-10">
+        <div className="flex flex-col justify-between md:justify-center ml-0 md:ml-10 space-y-6 md:space-y-10 px-6 pt-24 pb-0 md:p-10 relative z-10">
           {/* Header Section */}
           <div>
             <h1 className="font-['Just_Another_Hand'] text-white text-7xl md:text-8xl lg:text-9xl">
               PORTFOLIO
             </h1>
             <div className="space-y-2 mb-8">
-              <p className="font-lato text-white text-3xl md:text-4xl">
+              <p className="font-lato text-white text-2xl md:text-3xl">
                 Greetings! I'm
               </p>
-              <p className="font-lato text-white font-semibold text-4xl md:text-4xl">
+              <p className="font-lato text-white font-semibold text-2xl md:text-4xl">
                 Dhenize Krista Faith C. Lopez!
               </p>
             </div>
           </div>
-          <div className='grid grid-cols-3 gap-5'>
+          <div className='grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-5'>
             <div className="bg-white/16 rounded-lg hover:bg-white/24 transition-colors duration-300 p-2.5">
-              <p className="font-lato text-white text-lg text-center">
+              <p className="font-lato text-white text-sm md:text-lg text-center">
                 Quality Assurance
               </p>
             </div>
             <div className="bg-white/16 rounded-lg hover:bg-white/24 transition-colors duration-300 p-3">
-              <p className="font-lato text-white text-lg text-center">
+              <p className="font-lato text-white text-sm md:text-lg text-center">
                 Web Developer
               </p>
             </div>
             <div className="bg-white/16 rounded-lg hover:bg-white/24 transition-colors duration-300 p-3">
-              <p className="font-lato text-white text-lg text-center">
+              <p className="font-lato text-white text-sm md:text-lg text-center">
                 Mobile Developer
               </p>
             </div>
             <div className="bg-white/16 rounded-lg hover:bg-white/24 transition-colors duration-300 p-3">
-              <p className="font-lato text-white text-lg text-center">
+              <p className="font-lato text-white text-sm md:text-lg text-center">
                 Development Manager
               </p>
             </div>
             <div className="bg-white/16 rounded-lg hover:bg-white/24 transition-colors duration-300 p-3">
-              <p className="font-lato text-white text-lg text-center">
+              <p className="font-lato text-white text-sm md:text-lg text-center">
                 Illustrator
               </p>
             </div>
             <div className="bg-white/16 rounded-lg hover:bg-white/24 transition-colors duration-300 p-3">
-              <p className="font-lato text-white text-lg text-center">
+              <p className="font-lato text-white text-sm md:text-lg text-center">
                 Multimedia Editor
               </p>
             </div>
+          </div>
+
+          {/* Drawing shown on mobile — below the text, no overflow trick */}
+          <div className="flex md:hidden justify-center items-end mt-auto relative z-10">
+            <img src={mydrawing} className='w-64 sm:w-80' />
           </div>
         </div>
       </div>
 
       {/* INTRODUCTION */}
-      <div style={intro_div} className="flex w-full h-screen items-center justify-around">
-        <div className='fade-in-section slide-in-top p-5 flex flex-row items-center justify-center space-x-40 bg-white/16 w-full'>
+      <div style={intro_div} className="flex w-full min-h-screen items-center justify-around">
+        <div className='fade-in-section slide-in-top p-5 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 md:space-x-40 bg-white/16 w-full py-12 md:py-0'>
           <img src={mypic}
-            className='w-70 rounded-lg' />
+            className='w-56 sm:w-64 md:w-70 rounded-lg' />
 
-          <p className="font-lato text-white text-2xl whitespace-pre-line text-center">{intro_txts}</p>
+          <p className="font-lato text-white text-base sm:text-lg md:text-2xl whitespace-pre-line text-center">{intro_txts}</p>
         </div>
       </div>
 
 
       {/* TECH STACK */}
-      <div className="fade-in-section zoom-in flex flex-col w-full items-center justify-center py-15 bg-[#332837]">
-        <h1 className='text-white text-4xl font-bold mb-10 font-lato'>TECH STACK</h1>
+      <div className="fade-in-section zoom-in flex flex-col w-full items-center justify-center py-10 md:py-15 bg-[#332837]">
+        <h1 className='text-white text-3xl md:text-4xl font-bold mb-8 md:mb-10 font-lato'>TECH STACK</h1>
 
         <div className='tech-stack-container'>
           <div className='tech-stack-scroll'>
@@ -233,24 +240,24 @@ const Homepage = () => {
 
 
       {/* ADDITIONALS */}
-      <div className='fade-in-section flex flex-wrap justify-center items-center space-x-45 bg-[#332837] w-full py-10'>
+      <div className='fade-in-section flex flex-wrap justify-center items-center gap-8 md:gap-0 md:space-x-45 bg-[#332837] w-full py-10 px-4'>
         <div
           onClick={() => setShowEducation(true)}
-          className='additional-card accordion-card stagger-card bg-[#FF9071] h-55 w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
-          <img src={Edu} className='h-20' />
-          <h4 className="text-white text-xl font-lato font-bold">Education</h4>
+          className='additional-card accordion-card stagger-card bg-[#FF9071] h-44 w-44 sm:h-55 sm:w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
+          <img src={Edu} className='h-16 sm:h-20' />
+          <h4 className="text-white text-base sm:text-xl font-lato font-bold">Education</h4>
         </div>
         <div
           onClick={() => setShowFocus(true)}
-          className='additional-card accordion-card stagger-card bg-[#FF9071] h-55 w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
-          <img src={Focus} className='h-20' />
-          <h4 className="text-white text-xl font-lato font-bold">My Focus</h4>
+          className='additional-card accordion-card stagger-card bg-[#FF9071] h-44 w-44 sm:h-55 sm:w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
+          <img src={Focus} className='h-16 sm:h-20' />
+          <h4 className="text-white text-base sm:text-xl font-lato font-bold">My Focus</h4>
         </div>
         <div 
           onClick={() => setShowSkills(true)}
-          className='additional-card accordion-card stagger-card bg-[#FF9071] h-55 w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
-          <img src={Skills} className='h-20' />
-          <h4 className="text-white text-xl font-lato font-bold">Skills</h4>
+          className='additional-card accordion-card stagger-card bg-[#FF9071] h-44 w-44 sm:h-55 sm:w-55 rounded-xl flex flex-col justify-center items-center space-y-4'>
+          <img src={Skills} className='h-16 sm:h-20' />
+          <h4 className="text-white text-base sm:text-xl font-lato font-bold">Skills</h4>
         </div>
       </div>
 

@@ -20,7 +20,7 @@ const Education = ({ onClose }) => {
       color: '#621D7A'
     },
     senior: {
-      level: 'SENIOR HIGH SCHOOL',
+      level: 'SENIOR HIGH',
       name: 'Informatics College Cavite – Imus Campus',
       address: 'Informatics Bldg Aguinaldo Hi-way Anabu 1-E, Imus, Philippines',
       image: informatics,
@@ -29,7 +29,7 @@ const Education = ({ onClose }) => {
       color: '#E85395'
     },
     junior: {
-      level: 'JUNIOR HIGH SCHOOL',
+      level: 'JUNIOR HIGH',
       name: 'General Tomas Mascardo National High School',
       address: 'Greengate Subdivision, Barangay Malagasang II-A, Imus City, Imus, Philippines',
       image: gtmnhs,
@@ -43,7 +43,7 @@ const Education = ({ onClose }) => {
 
   return (
     <div 
-      className='education-modal-container bg-[#231528] backdrop-blur-sm border-4 p-6 w-full max-w-5xl h-auto flex flex-col items-center space-y-4'
+      className='education-modal-container bg-[#231528] backdrop-blur-sm border-4 p-4 sm:p-6 w-full max-w-5xl h-auto flex flex-col items-center space-y-4'
       style={{ 
         borderColor: currentSchool.color,
         '--current-color': currentSchool.color 
@@ -59,20 +59,18 @@ const Education = ({ onClose }) => {
       </button>
 
       {/* Title */}
-      <h2 className='font-["Just_Another_Hand"] text-5xl text-white'>
+      <h2 className='font-["Just_Another_Hand"] text-4xl sm:text-5xl text-white text-center'>
         EDUCATIONAL BACKGROUND
       </h2>
 
-      {/* Tab Navigation - Case File Tabs */}
-      <div className='flex space-x-2 relative w-full'>
+      {/* Tab Navigation */}
+      <div className='flex space-x-1 sm:space-x-2 relative w-full'>
         {Object.keys(schools).map((key) => (
           <button
             key={key}
             onClick={() => setActiveSchool(key)}
             className={`case-file-tab ${activeSchool === key ? 'active' : ''}`}
-            style={{
-              '--tab-color': schools[key].color
-            }}
+            style={{ '--tab-color': schools[key].color }}
           >
             <span className='text-xs font-lato font-bold uppercase tracking-wider'>
               {schools[key].level}
@@ -81,66 +79,46 @@ const Education = ({ onClose }) => {
         ))}
       </div>
 
-
       {/* Case File Content */}
       <div className='case-file-wrapper w-full'>
         <div className='case-file-content education-scrollable' style={{ '--scroll-color': currentSchool.color }}>
-          {/* Content Grid */}
-          <div className='grid grid-cols-1 md:grid-cols-5 gap-6 p-6'>
+          <div className='grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-6 p-4 sm:p-6'>
+
             {/* SCHOOL PIC */}
             <div className='md:col-span-2 space-y-4'>
-              <div className='case-file-stamp' style={{ 
-                borderColor: currentSchool.color,
-                color: currentSchool.color 
-              }}>
-                <p className='font-lato text-xl font-bold'>{currentSchool.level}</p>
+              <div className='case-file-stamp' style={{ borderColor: currentSchool.color, color: currentSchool.color }}>
+                <p className='font-lato text-lg sm:text-xl font-bold'>{currentSchool.level}</p>
               </div>
-              
               <div className='school-image-frame' style={{ borderColor: currentSchool.color }}>
-                <img 
-                  src={currentSchool.image} 
-                  alt={currentSchool.name}
-                  className='w-full h-full object-contain'
-                />
+                <img src={currentSchool.image} alt={currentSchool.name} className='w-full h-full object-contain' />
               </div>
             </div>
 
-            {/* Right Side - All Info */}
+            {/* Right Side */}
             <div className='md:col-span-3 space-y-4'>
-              {/* School Info */}
               <div className='info-section' style={{ borderLeftColor: currentSchool.color }}>
-                <h3 className='font-lato font-bold text-base mb-2' style={{ color: currentSchool.color }}>
+                <h3 className='font-lato font-bold text-sm sm:text-base mb-2' style={{ color: currentSchool.color }}>
                   {currentSchool.name}
                 </h3>
                 <div className='flex flex-row'>
-                  <img src ={location} className="w-4 h-4 mr-2" />
-                  <p className='text-black font-lato text-xs mb-3'>
-                    {currentSchool.address}
-                  </p>
+                  <img src={location} className="w-4 h-4 mr-2 shrink-0" alt="location" />
+                  <p className='text-black font-lato text-xs mb-3'>{currentSchool.address}</p>
                 </div>
-                
                 <div className='course-badge' style={{ background: currentSchool.color }}>
-                  <p className='text-white font-lato font-semibold text-xs'>
-                    {currentSchool.course}
-                  </p>
+                  <p className='text-white font-lato font-semibold text-xs'>{currentSchool.course}</p>
                 </div>
               </div>
 
-              {/* Description */}
-              <div className='classified-header' style={{ 
-                background: currentSchool.color,
-                borderLeftColor: currentSchool.color 
-              }}>
+              <div className='classified-header' style={{ background: currentSchool.color, borderLeftColor: currentSchool.color }}>
                 <p className='font-lato font-bold text-sm text-white'>PERSONAL ACCOUNT</p>
               </div>
               
               <div className='description-box' style={{ '--scroll-color': currentSchool.color }}>
-                <p className='text-black font-lato text-sm leading-relaxed text-justify'>
+                <p className='text-black font-lato text-xs sm:text-sm leading-relaxed text-justify'>
                   {currentSchool.description}
                 </p>
               </div>
 
-              {/* Decorative elements */}
               <div className='flex space-x-2'>
                 <div className='file-marker' style={{ background: currentSchool.color }}></div>
                 <div className='file-marker' style={{ background: currentSchool.color }}></div>

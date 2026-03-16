@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* CUSTOM CURSOR - 45x45 pixels */
+/* CUSTOM CURSOR */
 * {
   cursor: url('/rocket_pointer.png') 22 22, auto !important;
 }
@@ -13,31 +13,28 @@ a, button, [role="button"], input[type="submit"], input[type="button"], .clickab
 .sunset-bg {
   width: 100%;
   background: linear-gradient(to bottom, 
-    #621D7A, /* top */
+    #621D7A,
     #E85395,
     #FF9071,
-    #FFF5B5 /* bottom */
+    #FFF5B5
   );
 }
 
-/* METEOR SHOWER*/
+/* METEOR SHOWER */
 .meteor-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   pointer-events: none;
   overflow: hidden;
 }
 
 .meteor {
   position: absolute;
-  width: 2px;
-  height: 2px;
+  width: 2px; height: 2px;
   background: white;
   border-radius: 50%;
-  box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 3px 1px rgba(255,255,255,0.3);
   opacity: 0;
   animation: meteorFall linear infinite;
 }
@@ -45,31 +42,27 @@ a, button, [role="button"], input[type="submit"], input[type="button"], .clickab
 .meteor::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50px;
-  height: 2px;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6));
+  top: 50%; left: 50%;
+  width: 50px; height: 2px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.6));
   transform: translate(100%, -50%) rotate(-225deg);
   transform-origin: center;
 }
 
 @keyframes meteorFall {
-  0% {
-    opacity: 0;
-    transform: translate(0, 0);
-  }
-  10% {
-    opacity: 0.7;
-  }
-  80% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-300px, 300px);
-  }
+  0%   { opacity: 0; transform: translate(0, 0); }
+  10%  { opacity: 0.7; }
+  80%  { opacity: 0.7; }
+  100% { opacity: 0; transform: translate(-300px, 300px); }
 }
+
+
+/* ── DRAWING ATTACHED TO INTRO SECTION ──
+   The drawing image uses marginBottom: '-30%' in JSX (inline style).
+   The intro section has paddingTop to avoid content being hidden.
+   No extra CSS needed — handled in component.
+*/
+
 
 /* TECH STACK CAROUSEL */
 .tech-stack-container {
@@ -77,14 +70,26 @@ a, button, [role="button"], input[type="submit"], input[type="button"], .clickab
   overflow-x: hidden;
   overflow-y: visible;
   position: relative;
-  padding: 100px 0;
+  padding: 80px 0;
+}
+
+@media (max-width: 640px) {
+  .tech-stack-container {
+    padding: 60px 0;
+  }
 }
 
 .tech-stack-scroll {
   display: flex;
-  gap: 80px;
+  gap: 60px;
   animation: scroll 40s linear infinite;
   width: max-content;
+}
+
+@media (max-width: 640px) {
+  .tech-stack-scroll {
+    gap: 40px;
+  }
 }
 
 .tech-stack-scroll:hover {
@@ -95,72 +100,81 @@ a, button, [role="button"], input[type="submit"], input[type="button"], .clickab
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  min-width: 150px;
+  gap: 12px;
+  min-width: 100px;
   cursor: pointer;
   position: relative;
 }
 
+@media (min-width: 640px) {
+  .tech-item { min-width: 130px; gap: 14px; }
+}
+
 .tech-logo-wrapper {
-  width: 100px;
-  height: 100px;
+  width: 70px; height: 70px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   transition: all 0.3s ease;
 }
 
+@media (min-width: 640px) {
+  .tech-logo-wrapper { width: 90px; height: 90px; }
+}
+
 .tech-item:hover .tech-logo-wrapper {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255,255,255,0.2);
   transform: scale(1.1);
 }
 
 .tech-logo {
-  width: 80px;
-  height: 80px;
+  width: 55px; height: 55px;
   object-fit: contain;
+}
+
+@media (min-width: 640px) {
+  .tech-logo { width: 72px; height: 72px; }
 }
 
 .tech-name {
   font-family: 'Lato', sans-serif;
   color: white;
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
+@media (min-width: 640px) {
+  .tech-name { font-size: 15px; }
+}
+
 .tech-tooltip {
   position: absolute;
-  top: -80px;
-  left: 50%;
+  top: -70px; left: 50%;
   transform: translateX(-50%) translateY(10px);
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255,255,255,0.15);
   backdrop-filter: blur(10px);
   color: white;
-  padding: 12px 20px;
+  padding: 10px 16px;
   border-radius: 12px;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
   z-index: 100;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  font-size: 12px;
 }
 
-/* Connecting line from tooltip to tech stack */
 .tech-tooltip::after {
   content: '';
   position: absolute;
-  bottom: -20px;
-  left: 50%;
+  bottom: -18px; left: 50%;
   transform: translateX(-50%);
-  width: 2px;
-  height: 20px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
+  width: 2px; height: 18px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
 }
 
 .tech-item:hover .tech-tooltip {
@@ -169,12 +183,8 @@ a, button, [role="button"], input[type="submit"], input[type="button"], .clickab
 }
 
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 
@@ -183,316 +193,207 @@ a, button, [role="button"], input[type="submit"], input[type="button"], .clickab
   opacity: 0;
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
+.fade-in-section.animate-in { opacity: 1; }
 
-.fade-in-section.animate-in {
-  opacity: 1;
-}
+.slide-in-top { transform: translateY(-100px); }
+.slide-in-top.animate-in { transform: translateY(0); }
 
-/* Slide in from top */
-.slide-in-top {
-  transform: translateY(-100px);
-}
+.zoom-in { transform: scale(0.8); }
+.zoom-in.animate-in { transform: scale(1); }
 
-.slide-in-top.animate-in {
-  transform: translateY(0);
-}
-
-/* Zoom in effect */
-.zoom-in {
-  transform: scale(0.8);
-}
-
-.zoom-in.animate-in {
-  transform: scale(1);
-}
-
-/* Stagger cards animation */
 .stagger-card {
   opacity: 0;
   transform: translateY(50px) rotate(-5deg);
 }
-
 .fade-in-section.animate-in .stagger-card {
   opacity: 1;
   transform: translateY(0) rotate(0deg);
 }
-
-.fade-in-section.animate-in .stagger-card:nth-child(1) {
-  transition: all 0.3s ease-out 0.1s;
-}
-
-.fade-in-section.animate-in .stagger-card:nth-child(2) {
-  transition: all 0.3s ease-out 0.1s;
-}
-
-.fade-in-section.animate-in .stagger-card:nth-child(3) {
-  transition: all 0.3s ease-out 0.1s;
-}
+.fade-in-section.animate-in .stagger-card:nth-child(1) { transition: all 0.3s ease-out 0.1s; }
+.fade-in-section.animate-in .stagger-card:nth-child(2) { transition: all 0.3s ease-out 0.2s; }
+.fade-in-section.animate-in .stagger-card:nth-child(3) { transition: all 0.3s ease-out 0.3s; }
 
 
-/* ADDITIONAL CARDS - ACCORDION HOVER EFFECT */
+/* ADDITIONAL CARDS */
 .accordion-card {
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease;
 }
-
 .accordion-card:hover {
-  transform: scale(1.15) rotate(3deg) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: scale(1.12) rotate(2deg) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   z-index: 10;
 }
+.accordion-card img { transition: transform 0.2s ease; }
+.accordion-card:hover img { transform: scale(1.1); }
+.accordion-card h4 { transition: transform 0.2s ease; }
+.accordion-card:hover h4 { transform: translateY(4px); }
 
-.accordion-card img {
-  transition: transform 0.2s ease;
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(1px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: fadeIn 0.3s ease-out;
+  overflow-y: auto;
 }
-
-.accordion-card:hover img {
-  transform: scale(1.1);
-}
-
-.accordion-card h4 {
-  transition: transform 0.2s ease;
-}
-
-.accordion-card:hover h4 {
-  transform: translateY(5px);
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 
-/* EDUCATION MODAL - CASE FILE DESIGN */
+/* EDUCATION MODAL */
 .education-modal-container {
   position: relative;
-  max-height: 85vh;
+  max-height: 90vh;
   overflow-y: auto;
   border-radius: 12px;
+  margin: auto;
 }
 
-/* Close button inside modal */
 .education-close-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 40px;
-  height: 40px;
+  top: 12px; right: 12px;
+  width: 36px; height: 36px;
   border-radius: 50%;
   color: white;
   border: 2px solid white;
-  font-size: 20px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 18px; font-weight: bold;
+  display: flex; align-items: center; justify-content: center;
   z-index: 100;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-
 .education-close-btn:hover {
   transform: rotate(90deg) scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
-/* Scrollbar for modal container */
-.education-modal-container::-webkit-scrollbar {
-  width: 10px;
-}
-
-.education-modal-container::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-}
-
-.education-modal-container::-webkit-scrollbar-thumb {
-  background: var(--current-color);
-  border-radius: 10px;
-}
-
-.education-modal-container::-webkit-scrollbar-thumb:hover {
-  opacity: 0.8;
-}
+.education-modal-container::-webkit-scrollbar { width: 8px; }
+.education-modal-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.3); border-radius: 10px; }
+.education-modal-container::-webkit-scrollbar-thumb { background: var(--current-color); border-radius: 10px; }
 
 .case-file-tab {
   position: relative;
-  padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.5);
+  border: 2px solid rgba(255,255,255,0.4);
   border-bottom: none;
   border-radius: 8px 8px 0 0;
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 12px;
+  color: rgba(0,0,0,0.5);
+  font-size: 11px;
   transition: all 0.3s ease;
   transform: translateY(10px);
   opacity: 0.7;
+  flex: 1;
 }
 
-.case-file-tab:hover {
-  background: rgba(255, 255, 255, 0.5);
-  transform: translateY(5px);
-  opacity: 0.9;
+@media (min-width: 480px) {
+  .case-file-tab { padding: 10px 18px; font-size: 12px; flex: unset; }
 }
 
+.case-file-tab:hover { background: rgba(255,255,255,0.5); transform: translateY(5px); opacity: 0.9; }
 .case-file-tab.active {
   background: var(--tab-color);
   border-color: var(--tab-color);
   color: white;
   transform: translateY(0);
   opacity: 1;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   z-index: 10;
 }
 
-.case-file-wrapper {
-  position: relative;
-  width: 100%;
-}
-
+.case-file-wrapper { position: relative; width: 100%; }
 .case-file-content {
   position: relative;
   background: #231528;
   border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
   animation: slideIn 0.5s ease-out;
 }
 
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-
-/* Stamp */
 .case-file-stamp {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 6px 12px;
   border: 3px dashed;
   border-radius: 4px;
   transform: rotate(-3deg);
-  background: rgb(255, 254, 233);
+  background: rgb(255,254,233);
 }
 
-/* School Image Frame */
 .school-image-frame {
   width: 100%;
-  height: 320px;
+  height: 200px;
   border: 4px solid;
   border-radius: 10px;
   padding: 8px;
-  background: rgb(255, 254, 233);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow: visible;
-  position: relative;
+  background: rgb(255,254,233);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 
-.school-image-frame img {
-  object-position: center;
+@media (min-width: 640px) {
+  .school-image-frame { height: 260px; }
+}
+@media (min-width: 768px) {
+  .school-image-frame { height: 320px; }
 }
 
-/* Info Section */
 .info-section {
-  background: rgb(255, 254, 233);
-  padding: 16px;
+  background: rgb(255,254,233);
+  padding: 12px;
   border-left: 4px solid;
   border-radius: 4px;
 }
 
-.course-badge {
-  padding: 12px;
-  border-radius: 6px;
-  margin-top: 8px;
-}
+.course-badge { padding: 10px; border-radius: 6px; margin-top: 8px; }
 
-/* Classified Header */
 .classified-header {
-  padding: 10px 16px;
+  padding: 8px 14px;
   border-left: 4px solid;
   text-align: center;
   letter-spacing: 2px;
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Description Box */
 .description-box {
-  background: rgb(255, 254, 233);
-  padding: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgb(255,254,233);
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: 4px;
-  max-height: 400px;
+  max-height: 280px;
   overflow-y: auto;
 }
 
-/* Custom scrollbar for description */
-.description-box::-webkit-scrollbar {
-  width: 6px;
+@media (min-width: 640px) {
+  .description-box { max-height: 360px; }
 }
 
-.description-box::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
-}
+.description-box::-webkit-scrollbar { width: 5px; }
+.description-box::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 4px; }
+.description-box::-webkit-scrollbar-thumb { background: var(--scroll-color); border-radius: 4px; opacity: 0.6; }
 
-.description-box::-webkit-scrollbar-thumb {
-  background: var(--scroll-color);
-  border-radius: 4px;
-  opacity: 0.6;
-}
-
-.description-box::-webkit-scrollbar-thumb:hover {
-  opacity: 0.8;
-}
-
-/* File Markers */
-.file-marker {
-  width: 60px;
-  height: 6px;
-  border-radius: 2px;
-  opacity: 0.7;
-}
-
-
-/* MODAL STYLES */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(1px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  padding: 20px;
-  animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-
-
-
+.file-marker { width: 50px; height: 5px; border-radius: 2px; opacity: 0.7; }
 
 
 /* MY FOCUS MODAL */
 .myfocus-modal-container {
   position: relative;
-  max-height: 85vh;
+  max-height: 90vh;
   overflow-y: auto;
+  margin: auto;
 }
 
 .myfocus-modal-border {
@@ -503,85 +404,60 @@ a, button, [role="button"], input[type="submit"], input[type="button"], .clickab
     linear-gradient(180deg, #621D7A, #E85395, #FF9071, #C8AF62) border-box;
 }
 
-/* Close button for focus modal */
 .focus-close-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 40px;
-  height: 40px;
+  top: 12px; right: 12px;
+  width: 36px; height: 36px;
   border-radius: 50%;
   background: #621D7A;
   color: white;
   border: 2px solid white;
-  font-size: 20px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 18px; font-weight: bold;
+  display: flex; align-items: center; justify-content: center;
   z-index: 100;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-
 .focus-close-btn:hover {
   transform: rotate(90deg) scale(1.1);
   background: #FF9071;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
-/* Scrollbar for focus modal */
-.myfocus-modal-container::-webkit-scrollbar {
-  width: 10px;
-}
+.myfocus-modal-container::-webkit-scrollbar { width: 8px; }
+.myfocus-modal-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 10px; }
+.myfocus-modal-container::-webkit-scrollbar-thumb { background: #621D7A; border-radius: 10px; }
 
-.myfocus-modal-container::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-}
-
-.myfocus-modal-container::-webkit-scrollbar-thumb {
-  background:#621D7A;
-  border-radius: 10px;
-}
-
-/* .myfocus-modal-container::-webkit-scrollbar-thumb:hover {
-  background: #FF9071;
-} */
-
-
-/* Focus Cards */
 .focus-card {
-  padding: 24px;
+  padding: 16px;
   border-radius: 8px;
   opacity: 0;
-  transform: translateX(-100px);
+  transform: translateX(-80px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.focus-card-visible {
-  opacity: 1;
-  transform: translateX(0);
+@media (min-width: 640px) {
+  .focus-card { padding: 20px; }
 }
+
+.focus-card-visible { opacity: 1; transform: translateX(0); }
 
 .focus-icon-wrapper {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 12px;
+  background: rgba(255,255,255,0.2);
+  padding: 10px;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 64px;
+  display: flex; align-items: center; justify-content: center;
+  min-width: 52px;
 }
-
 
 
 /* SKILLS MODAL */
 .skills-modal-container {
   position: relative;
-  max-height: 85vh;
+  max-height: 90vh;
   overflow-y: auto;
+  margin: auto;
 }
 
 .skills-modal-border {
@@ -593,19 +469,35 @@ a, button, [role="button"], input[type="submit"], input[type="button"], .clickab
 }
 
 
-
-
-
-/* =========================================================== */
-
-
 /* PROJECTS */
 .night-bg {
   width: 100%;
   background: linear-gradient(to bottom, 
-    #0E2148, /* top */
+    #0E2148,
     #483AA0,
     #974EC3,
-    #E3D095 /* bottom */
+    #E3D095
   );
+}
+
+
+/* ── RESPONSIVE UTILITIES ── */
+
+/* Ensure modals never overflow on tiny screens */
+@media (max-width: 480px) {
+  .modal-overlay { padding: 8px; align-items: flex-start; padding-top: 16px; }
+  
+  .education-modal-container,
+  .myfocus-modal-container,
+  .skills-modal-container { max-height: 95vh; }
+  
+  /* Stack focus card icon + text on very small screens */
+  .focus-card .flex { flex-wrap: wrap; }
+}
+
+/* Make sure text doesn't overflow on small screens */
+@media (max-width: 360px) {
+  .tech-name { font-size: 11px; }
+  .tech-logo { width: 44px; height: 44px; }
+  .tech-logo-wrapper { width: 58px; height: 58px; }
 }

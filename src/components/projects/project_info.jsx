@@ -132,47 +132,35 @@ const ProjectInfo = ({ project, onClose }) => {
                 .pi-modal-leave { animation: pi-fadeOut .3s  cubic-bezier(.22,1,.36,1) forwards; }
                 .pi-slide-in    { animation: pi-slideLeft .4s cubic-bezier(.22,1,.36,1) forwards; }
 
-                /* ── Close button: exact MyFocus style + #0E2148 → #974EC3 colour transition ── */
                 .pi-close-btn {
                     position: absolute;
-                    top: 15px;
-                    right: 15px;
-                    width: 40px;
-                    height: 40px;
+                    top: 15px; right: 15px;
+                    width: 40px; height: 40px;
                     border-radius: 50%;
                     background: #0E2148;
                     color: white;
                     border: 2px solid white;
-                    font-size: 20px;
-                    font-weight: bold;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    z-index: 100;
+                    font-size: 20px; font-weight: bold;
+                    display: flex; align-items: center; justify-content: center;
+                    cursor: pointer; z-index: 100;
                     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
                 }
                 .pi-close-btn:hover {
                     background: #974EC3;
                     transform: rotate(90deg) scale(1.1);
-                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+                    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
                 }
 
                 .pi-carousel-btn {
                     position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 2rem;
-                    height: 2rem;
+                    top: 50%; transform: translateY(-50%);
+                    width: 2rem; height: 2rem;
                     border-radius: 50%;
                     background: rgba(14,33,72,0.75);
                     border: 1px solid rgba(255,255,255,0.15);
-                    color: white;
-                    font-size: .85rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    color: white; font-size: .85rem;
+                    display: flex; align-items: center; justify-content: center;
                     cursor: pointer;
                     transition: background .25s, transform .2s;
                     z-index: 3;
@@ -197,11 +185,8 @@ const ProjectInfo = ({ project, onClose }) => {
                 .pi-right-scroll:hover::-webkit-scrollbar-thumb { background: rgba(227,208,149,0.6); }
 
                 .pi-tech-chip {
-                    display: flex;
-                    align-items: center;
-                    gap: 6px;
-                    padding: 5px 10px;
-                    border-radius: 999px;
+                    display: flex; align-items: center; gap: 6px;
+                    padding: 5px 10px; border-radius: 999px;
                     background: rgba(255,255,255,0.07);
                     border: 1px solid rgba(255,255,255,0.12);
                     transition: background .2s, border-color .2s;
@@ -238,7 +223,6 @@ const ProjectInfo = ({ project, onClose }) => {
                 }
                 .pi-lb-nav:hover { background: #974EC3; }
 
-                /* Lightbox close — same MyFocus style */
                 .pi-lb-close {
                     position: absolute; top: 15px; right: 15px;
                     width: 40px; height: 40px;
@@ -256,6 +240,60 @@ const ProjectInfo = ({ project, onClose }) => {
                     transform: rotate(90deg) scale(1.1);
                     box-shadow: 0 6px 20px rgba(0,0,0,0.4);
                 }
+
+                /* ── RESPONSIVE: on mobile stack carousel on top, details below ── */
+                .pi-inner {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 650px;
+                    overflow: hidden;
+                }
+
+                .pi-left {
+                    width: 52%;
+                    min-width: 0;
+                    display: flex;
+                    flex-direction: column;
+                    flex-shrink: 0;
+                }
+
+                .pi-divider {
+                    width: 1px;
+                    background: rgba(255,255,255,0.08);
+                    flex-shrink: 0;
+                }
+
+                @media (max-width: 640px) {
+                    .pi-inner {
+                        flex-direction: column;
+                        height: auto;
+                        max-height: 88vh;
+                        overflow-y: auto;
+                    }
+                    .pi-left {
+                        width: 100%;
+                        flex-shrink: 0;
+                        /* fixed height for the carousel on mobile */
+                        height: 260px;
+                    }
+                    .pi-divider {
+                        width: 100%;
+                        height: 1px;
+                    }
+                    .pi-right {
+                        /* let it grow naturally — inner scroll disabled on mobile since outer scrolls */
+                        overflow-y: visible !important;
+                        max-height: none !important;
+                    }
+                    .pi-close-btn {
+                        top: 10px;
+                        right: 10px;
+                        width: 34px;
+                        height: 34px;
+                        font-size: 16px;
+                    }
+                }
             `}</style>
 
             {/* Lightbox */}
@@ -263,11 +301,8 @@ const ProjectInfo = ({ project, onClose }) => {
                 <div className="pi-lightbox-overlay" onClick={closeLightbox}>
                     <button className="pi-lb-close" onClick={closeLightbox}>✕</button>
 
-                    <button
-                        className="pi-lb-nav"
-                        style={{ left: '1rem' }}
-                        onClick={(e) => { e.stopPropagation(); lightboxPrev() }}
-                    >‹</button>
+                    <button className="pi-lb-nav" style={{ left: '1rem' }}
+                        onClick={(e) => { e.stopPropagation(); lightboxPrev() }}>‹</button>
 
                     <div
                         style={{ overflow: 'hidden', maxWidth: '90vw', maxHeight: '85vh', cursor: zoom > 1 ? 'grab' : 'zoom-in' }}
@@ -302,11 +337,8 @@ const ProjectInfo = ({ project, onClose }) => {
                         )}
                     </div>
 
-                    <button
-                        className="pi-lb-nav"
-                        style={{ right: '1rem' }}
-                        onClick={(e) => { e.stopPropagation(); lightboxNext() }}
-                    >›</button>
+                    <button className="pi-lb-nav" style={{ right: '1rem' }}
+                        onClick={(e) => { e.stopPropagation(); lightboxNext() }}>›</button>
 
                     <div style={{ position: 'absolute', bottom: '1rem', left: '50%', transform: 'translateX(-50%)', color: 'rgba(255,255,255,0.5)', fontSize: '.8rem' }}>
                         {lightboxIndex + 1} / {allMedia.length}
@@ -315,7 +347,7 @@ const ProjectInfo = ({ project, onClose }) => {
             )}
 
             {/* Modal Backdrop */}
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-3 sm:px-4 py-4">
                 <div
                     className={`w-full max-w-5xl relative ${isVisible ? 'pi-modal-enter' : 'pi-modal-leave'}`}
                     style={{
@@ -324,199 +356,195 @@ const ProjectInfo = ({ project, onClose }) => {
                         background: 'linear-gradient(#231528, #231528) padding-box, linear-gradient(180deg, #0E2148 0%, #483AA0 35%, #974EC3 70%, #E3D095 100%) border-box',
                     }}
                 >
-                    <div className="relative bg-[#231528] rounded-xl w-full overflow-hidden flex" style={{ height: '650px' }}>
+                    <div className="relative bg-[#231528] rounded-xl w-full overflow-hidden">
 
-                        {/* Close Button — MyFocus style exactly */}
                         <button className="pi-close-btn" onClick={handleClose}>✕</button>
 
-                        {/* ── LEFT: Carousel ── */}
-                        <div className="relative flex flex-col" style={{ width: '52%', minWidth: 0 }}>
-                            {/* Slide area — black bg, image contained (not stretched) */}
-                            <div
-                                className="relative flex-1 overflow-hidden cursor-pointer"
-                                style={{ background: '#0d0714' }}
-                                onClick={() => openLightbox(currentIndex)}
-                            >
-                                {allMedia.map((src, i) => (
-                                    <div
-                                        key={i}
-                                        style={{
-                                            position: 'absolute', inset: 0,
-                                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                            opacity: i === currentIndex ? 1 : 0,
-                                            transition: 'opacity .6s ease',
-                                            pointerEvents: i === currentIndex ? 'auto' : 'none'
-                                        }}
-                                    >
-                                        {isVideoFile(src) ? (
-                                            <video
-                                                src={src}
-                                                style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block' }}
-                                                autoPlay loop muted playsInline
-                                            />
-                                        ) : (
-                                            <img
-                                                src={src}
-                                                alt={`slide-${i}`}
-                                                style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block' }}
-                                            />
-                                        )}
-                                    </div>
-                                ))}
+                        <div className="pi-inner">
 
-                                {/* Zoom hint */}
-                                <div style={{
-                                    position: 'absolute', bottom: 48, right: 12,
-                                    background: 'rgba(0,0,0,0.5)',
-                                    color: 'rgba(255,255,255,0.7)',
-                                    fontSize: '.65rem', padding: '3px 8px',
-                                    borderRadius: '999px', pointerEvents: 'none',
-                                    zIndex: 4
-                                }}>🔍 click to expand</div>
-
-                                {/* Prev / Next */}
-                                {allMedia.length > 1 && (
-                                    <>
-                                        <button
-                                            className="pi-carousel-btn"
-                                            style={{ left: '0.6rem' }}
-                                            onClick={(e) => { e.stopPropagation(); goTo(currentIndex - 1) }}
-                                        >‹</button>
-                                        <button
-                                            className="pi-carousel-btn"
-                                            style={{ right: '0.6rem' }}
-                                            onClick={(e) => { e.stopPropagation(); goTo(currentIndex + 1) }}
-                                        >›</button>
-                                    </>
-                                )}
-                            </div>
-
-                            {/* Dots */}
-                            {allMedia.length > 1 && (
-                                <div style={{
-                                    display: 'flex', justifyContent: 'center', alignItems: 'center',
-                                    gap: '6px', padding: '10px 0',
-                                    background: '#1a0f20'
-                                }}>
-                                    {allMedia.map((_, i) => (
-                                        <div
-                                            key={i}
-                                            className={`pi-dot ${i === currentIndex ? 'active' : ''}`}
-                                            onClick={() => goTo(i)}
-                                        />
-                                    ))}
-                                </div>
-                            )}
-
-                            {/* Thumbnail strip */}
-                            {allMedia.length > 1 && (
-                                <div style={{
-                                    display: 'flex', gap: '6px', padding: '8px 12px',
-                                    background: '#1a0f20', overflowX: 'auto',
-                                    scrollbarWidth: 'none'
-                                }}>
+                            {/* ── LEFT: Carousel ── */}
+                            <div className="pi-left">
+                                {/* Slide area */}
+                                <div
+                                    className="relative flex-1 overflow-hidden cursor-pointer"
+                                    style={{ background: '#0d0714' }}
+                                    onClick={() => openLightbox(currentIndex)}
+                                >
                                     {allMedia.map((src, i) => (
                                         <div
                                             key={i}
-                                            onClick={() => goTo(i)}
                                             style={{
-                                                flexShrink: 0, width: '52px', height: '40px',
-                                                borderRadius: '6px', overflow: 'hidden',
-                                                background: '#0d0714',
-                                                border: i === currentIndex ? '2px solid #E3D095' : '2px solid transparent',
-                                                cursor: 'pointer', transition: 'border-color .2s',
-                                                display: 'flex', alignItems: 'center', justifyContent: 'center'
+                                                position: 'absolute', inset: 0,
+                                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                opacity: i === currentIndex ? 1 : 0,
+                                                transition: 'opacity .6s ease',
+                                                pointerEvents: i === currentIndex ? 'auto' : 'none'
                                             }}
                                         >
-                                            {isVideoFile(src)
-                                                ? <video src={src} muted playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                                                : <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                                            }
+                                            {isVideoFile(src) ? (
+                                                <video
+                                                    src={src}
+                                                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block' }}
+                                                    autoPlay loop muted playsInline
+                                                />
+                                            ) : (
+                                                <img
+                                                    src={src}
+                                                    alt={`slide-${i}`}
+                                                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block' }}
+                                                />
+                                            )}
                                         </div>
                                     ))}
+
+                                    {/* Zoom hint */}
+                                    <div style={{
+                                        position: 'absolute', bottom: 48, right: 12,
+                                        background: 'rgba(0,0,0,0.5)',
+                                        color: 'rgba(255,255,255,0.7)',
+                                        fontSize: '.65rem', padding: '3px 8px',
+                                        borderRadius: '999px', pointerEvents: 'none', zIndex: 4
+                                    }}>🔍 click to expand</div>
+
+                                    {/* Prev / Next */}
+                                    {allMedia.length > 1 && (
+                                        <>
+                                            <button className="pi-carousel-btn" style={{ left: '0.6rem' }}
+                                                onClick={(e) => { e.stopPropagation(); goTo(currentIndex - 1) }}>‹</button>
+                                            <button className="pi-carousel-btn" style={{ right: '0.6rem' }}
+                                                onClick={(e) => { e.stopPropagation(); goTo(currentIndex + 1) }}>›</button>
+                                        </>
+                                    )}
                                 </div>
-                            )}
-                        </div>
 
-                        {/* Divider */}
-                        <div style={{ width: '1px', background: 'rgba(255,255,255,0.08)', flexShrink: 0 }} />
-
-                        {/* ── RIGHT: Details (single scrollbar) ── */}
-                        <div
-                            className="pi-right-scroll pi-slide-in"
-                            style={{
-                                flex: 1, minWidth: 0,
-                                overflowY: 'auto',
-                                padding: '1.5rem 1.4rem 1.5rem 1.4rem',
-                                display: 'flex', flexDirection: 'column', gap: '1.25rem'
-                            }}
-                        >
-                            {/* Category + Title */}
-                            <div style={{ paddingRight: '2rem' }}>
-                                <p style={{ color: '#E3D095', fontSize: '.78rem', fontFamily: 'Lato, sans-serif', marginBottom: '4px', letterSpacing: '.08em' }}>
-                                    {project.category}
-                                </p>
-                                <h2 style={{ color: 'white', fontSize: '2rem', fontFamily: '"Just Another Hand", cursive', lineHeight: 1.1, margin: 0 }}>
-                                    {project.title}
-                                </h2>
-                            </div>
-
-                            {/* Description */}
-                            <div>
-                                <h3 style={{ color: '#E3D095', fontFamily: 'Lato, sans-serif', fontWeight: 700, fontSize: '.75rem', letterSpacing: '.1em', marginBottom: '8px' }}>
-                                    DESCRIPTION
-                                </h3>
-                                <p style={{ color: 'rgba(255,255,255,0.88)', fontFamily: 'Lato, sans-serif', fontSize: '.85rem', lineHeight: 1.65, margin: 0 }}>
-                                    {project.description}
-                                </p>
-                            </div>
-
-                            {/* Contributions */}
-                            <div>
-                                <h3 style={{ color: '#E3D095', fontFamily: 'Lato, sans-serif', fontWeight: 700, fontSize: '.75rem', letterSpacing: '.1em', marginBottom: '8px' }}>
-                                    CONTRIBUTIONS
-                                </h3>
-                                {project.contributions?.length > 0 ? (
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                        {project.contributions.map((item, i) => (
-                                            <div key={i} className="pi-contrib-card">
-                                                <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '.83rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.6, margin: 0 }}>
-                                                    {item}
-                                                </p>
-                                            </div>
+                                {/* Dots */}
+                                {allMedia.length > 1 && (
+                                    <div style={{
+                                        display: 'flex', justifyContent: 'center', alignItems: 'center',
+                                        gap: '6px', padding: '8px 0',
+                                        background: '#1a0f20'
+                                    }}>
+                                        {allMedia.map((_, i) => (
+                                            <div
+                                                key={i}
+                                                className={`pi-dot ${i === currentIndex ? 'active' : ''}`}
+                                                onClick={() => goTo(i)}
+                                            />
                                         ))}
                                     </div>
-                                ) : (
-                                    <div className="pi-contrib-card">
-                                        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '.83rem', fontFamily: 'Lato, sans-serif', margin: 0 }}>
-                                            No contributions added yet.
-                                        </p>
+                                )}
+
+                                {/* Thumbnail strip */}
+                                {allMedia.length > 1 && (
+                                    <div style={{
+                                        display: 'flex', gap: '6px', padding: '6px 10px',
+                                        background: '#1a0f20', overflowX: 'auto',
+                                        scrollbarWidth: 'none'
+                                    }}>
+                                        {allMedia.map((src, i) => (
+                                            <div
+                                                key={i}
+                                                onClick={() => goTo(i)}
+                                                style={{
+                                                    flexShrink: 0, width: '48px', height: '36px',
+                                                    borderRadius: '6px', overflow: 'hidden',
+                                                    background: '#0d0714',
+                                                    border: i === currentIndex ? '2px solid #E3D095' : '2px solid transparent',
+                                                    cursor: 'pointer', transition: 'border-color .2s',
+                                                    display: 'flex', alignItems: 'center', justifyContent: 'center'
+                                                }}
+                                            >
+                                                {isVideoFile(src)
+                                                    ? <video src={src} muted playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                                                    : <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                                                }
+                                            </div>
+                                        ))}
                                     </div>
                                 )}
                             </div>
 
-                            {/* Tech Stack */}
-                            <div>
-                                <h3 style={{ color: '#E3D095', fontFamily: 'Lato, sans-serif', fontWeight: 700, fontSize: '.75rem', letterSpacing: '.1em', marginBottom: '10px' }}>
-                                    TECH STACK
-                                </h3>
-                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                                    {project.techStack?.map((tech, i) => (
-                                        <div key={i} className="pi-tech-chip">
-                                            <img
-                                                src={tech.icon || tech}
-                                                alt={tech.name || `tech-${i}`}
-                                                style={{ width: '20px', height: '20px', objectFit: 'contain', flexShrink: 0 }}
-                                            />
-                                            {tech.name && (
-                                                <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: '.76rem', fontFamily: 'Lato, sans-serif', whiteSpace: 'nowrap' }}>
-                                                    {tech.name}
-                                                </span>
-                                            )}
+                            {/* Divider */}
+                            <div className="pi-divider" />
+
+                            {/* ── RIGHT: Details ── */}
+                            <div
+                                className="pi-right-scroll pi-slide-in pi-right"
+                                style={{
+                                    flex: 1, minWidth: 0,
+                                    overflowY: 'auto',
+                                    padding: '1.5rem 1.4rem',
+                                    display: 'flex', flexDirection: 'column', gap: '1.25rem'
+                                }}
+                            >
+                                {/* Category + Title */}
+                                <div style={{ paddingRight: '2rem' }}>
+                                    <p style={{ color: '#E3D095', fontSize: '.78rem', fontFamily: 'Lato, sans-serif', marginBottom: '4px', letterSpacing: '.08em' }}>
+                                        {project.category}
+                                    </p>
+                                    <h2 style={{ color: 'white', fontSize: '2rem', fontFamily: '"Just Another Hand", cursive', lineHeight: 1.1, margin: 0 }}>
+                                        {project.title}
+                                    </h2>
+                                </div>
+
+                                {/* Description */}
+                                <div>
+                                    <h3 style={{ color: '#E3D095', fontFamily: 'Lato, sans-serif', fontWeight: 700, fontSize: '.75rem', letterSpacing: '.1em', marginBottom: '8px' }}>
+                                        DESCRIPTION
+                                    </h3>
+                                    <p style={{ color: 'rgba(255,255,255,0.88)', fontFamily: 'Lato, sans-serif', fontSize: '.85rem', lineHeight: 1.65, margin: 0 }}>
+                                        {project.description}
+                                    </p>
+                                </div>
+
+                                {/* Contributions */}
+                                <div>
+                                    <h3 style={{ color: '#E3D095', fontFamily: 'Lato, sans-serif', fontWeight: 700, fontSize: '.75rem', letterSpacing: '.1em', marginBottom: '8px' }}>
+                                        CONTRIBUTIONS
+                                    </h3>
+                                    {project.contributions?.length > 0 ? (
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                            {project.contributions.map((item, i) => (
+                                                <div key={i} className="pi-contrib-card">
+                                                    <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '.83rem', fontFamily: 'Lato, sans-serif', lineHeight: 1.6, margin: 0 }}>
+                                                        {item}
+                                                    </p>
+                                                </div>
+                                            ))}
                                         </div>
-                                    ))}
+                                    ) : (
+                                        <div className="pi-contrib-card">
+                                            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '.83rem', fontFamily: 'Lato, sans-serif', margin: 0 }}>
+                                                No contributions added yet.
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Tech Stack */}
+                                <div>
+                                    <h3 style={{ color: '#E3D095', fontFamily: 'Lato, sans-serif', fontWeight: 700, fontSize: '.75rem', letterSpacing: '.1em', marginBottom: '10px' }}>
+                                        TECH STACK
+                                    </h3>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                                        {project.techStack?.map((tech, i) => (
+                                            <div key={i} className="pi-tech-chip">
+                                                <img
+                                                    src={tech.icon || tech}
+                                                    alt={tech.name || `tech-${i}`}
+                                                    style={{ width: '20px', height: '20px', objectFit: 'contain', flexShrink: 0 }}
+                                                />
+                                                {tech.name && (
+                                                    <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: '.76rem', fontFamily: 'Lato, sans-serif', whiteSpace: 'nowrap' }}>
+                                                        {tech.name}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

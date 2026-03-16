@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 
 import resumePdf from '../../assets/kristar/LopezDhenizeKristaFaith_Resume.pdf'
 
@@ -49,11 +49,11 @@ const CvResume = ({ onBack }) => {
                 .cv-container { animation: cv-in .3s cubic-bezier(.22,1,.36,1) both; }
 
                 .cv-zoom-btn {
-                    width: 34px; height: 34px;
+                    width: 30px; height: 30px;
                     border-radius: 50%;
                     background: rgba(255,255,255,0.08);
                     border: 1px solid rgba(255,255,255,0.15);
-                    color: white; font-size: 1rem;
+                    color: white; font-size: .9rem;
                     display: flex; align-items: center; justify-content: center;
                     cursor: pointer;
                     transition: background .2s, border-color .2s;
@@ -65,16 +65,17 @@ const CvResume = ({ onBack }) => {
                 }
 
                 .cv-download-btn {
-                    display: inline-flex; align-items: center; gap: 7px;
+                    display: inline-flex; align-items: center; gap: 6px;
                     background: linear-gradient(135deg, #621D7A, #E85395);
                     border: none; border-radius: 999px;
-                    padding: 9px 20px;
-                    color: white; font-size: .82rem;
+                    padding: 7px 14px;
+                    color: white; font-size: .78rem;
                     font-family: 'Lato', sans-serif; font-weight: 700;
                     cursor: pointer; letter-spacing: .04em;
                     transition: opacity .2s, transform .2s, box-shadow .2s;
                     box-shadow: 0 4px 14px rgba(98,29,122,0.4);
                     text-decoration: none;
+                    white-space: nowrap;
                 }
                 .cv-download-btn:hover {
                     opacity: .9; transform: translateY(-1px);
@@ -82,14 +83,14 @@ const CvResume = ({ onBack }) => {
                 }
 
                 .cv-back-btn {
-                    display: flex; align-items: center; gap: 6px;
+                    display: flex; align-items: center; gap: 5px;
                     background: rgba(255,255,255,0.07);
                     border: 1px solid rgba(255,255,255,0.15);
                     border-radius: 999px;
-                    padding: 8px 16px;
+                    padding: 6px 12px;
                     color: rgba(255,255,255,0.85);
-                    font-size: .82rem; font-family: 'Lato', sans-serif;
-                    cursor: pointer;
+                    font-size: .78rem; font-family: 'Lato', sans-serif;
+                    cursor: pointer; white-space: nowrap;
                     transition: background .2s, border-color .2s, color .2s;
                 }
                 .cv-back-btn:hover {
@@ -102,63 +103,50 @@ const CvResume = ({ onBack }) => {
                     background: rgba(255,255,255,0.07);
                     border: 1px solid rgba(255,255,255,0.15);
                     border-radius: 999px;
-                    padding: 6px 14px;
+                    padding: 5px 10px;
                     color: rgba(255,255,255,0.75);
-                    font-size: .78rem; font-family: 'Lato', sans-serif;
-                    cursor: pointer; min-width: '54px'; text-align: center;
+                    font-size: .73rem; font-family: 'Lato', sans-serif;
+                    cursor: pointer; text-align: center; white-space: nowrap;
                     transition: background .2s;
                 }
-                .cv-zoom-reset-btn:hover {
-                    background: rgba(255,255,255,0.12);
-                }
+                .cv-zoom-reset-btn:hover { background: rgba(255,255,255,0.12); }
 
-                .cv-pdf-frame {
-                    width: 100%; height: 100%;
-                    border: none;
-                    display: block;
+                .cv-pdf-frame { width: 100%; height: 100%; border: none; display: block; }
+
+                /* On small screens, hide zoom controls to save space */
+                @media (max-width: 480px) {
+                    .cv-zoom-group { display: none !important; }
                 }
             `}</style>
 
-            <div
-                className="cv-container flex flex-col w-full"
-                style={{ height: '100%', padding: '1.6rem 1.7rem 1.2rem' }}
-            >
-                {/* ── Top bar ── */}
+            <div className="cv-container flex flex-col w-full" style={{ height: '100%', padding: '1rem 1rem 0.8rem' }}>
+                {/* Top bar */}
                 <div style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    marginBottom: '1rem', flexWrap: 'wrap', gap: '10px', flexShrink: 0
+                    marginBottom: '.8rem', flexWrap: 'wrap', gap: '8px', flexShrink: 0
                 }}>
-                    {/* Back + title */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <button className="cv-back-btn" onClick={onBack}>
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <polyline points="15 18 9 12 15 6"/>
                             </svg>
                             Back
                         </button>
-                        <div>
-                            <h2 style={{ color: 'white', fontSize: '1.7rem', fontFamily: '"Just Another Hand", cursive', lineHeight: 1, margin: 0 }}>
-                                MY CURRICULUM VITAE
-                            </h2>
-                        </div>
+                        <h2 style={{ color: 'white', fontSize: '1.4rem', fontFamily: '"Just Another Hand", cursive', lineHeight: 1, margin: 0, whiteSpace: 'nowrap' }}>
+                            MY CURRICULUM VITAE
+                        </h2>
                     </div>
 
-                    {/* Controls */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <button className="cv-zoom-btn" onClick={zoomOut} title="Zoom out">−</button>
-                        <button className="cv-zoom-reset-btn" onClick={resetZoom} title="Reset zoom">
-                            {Math.round(zoom * 100)}%
-                        </button>
-                        <button className="cv-zoom-btn" onClick={zoomIn} title="Zoom in">+</button>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <div className="cv-zoom-group" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <button className="cv-zoom-btn" onClick={zoomOut} title="Zoom out">−</button>
+                            <button className="cv-zoom-reset-btn" onClick={resetZoom}>{Math.round(zoom * 100)}%</button>
+                            <button className="cv-zoom-btn" onClick={zoomIn} title="Zoom in">+</button>
+                            <div style={{ width: '1px', height: '22px', background: 'rgba(255,255,255,0.12)', flexShrink: 0 }} />
+                        </div>
 
-                        <div style={{ width: '1px', height: '26px', background: 'rgba(255,255,255,0.12)', flexShrink: 0 }} />
-
-                        <a
-                            href={RESUME_PDF}
-                            download="LopezDhenizeKristaFaith_Resume.pdf"
-                            className="cv-download-btn"
-                        >
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <a href={RESUME_PDF} download="LopezDhenizeKristaFaith_Resume.pdf" className="cv-download-btn">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                                 <polyline points="7 10 12 15 17 10"/>
                                 <line x1="12" y1="15" x2="12" y2="3"/>
@@ -168,7 +156,7 @@ const CvResume = ({ onBack }) => {
                     </div>
                 </div>
 
-                {/* ── PDF viewer ── */}
+                {/* PDF viewer */}
                 <div
                     ref={containerRef}
                     onWheel={handleWheel}
@@ -178,12 +166,13 @@ const CvResume = ({ onBack }) => {
                     onMouseLeave={handleMouseUp}
                     style={{
                         flex: 1,
-                        borderRadius: '12px',
+                        borderRadius: '10px',
                         border: '1px solid rgba(255,255,255,0.1)',
                         background: '#1a1025',
                         overflow: 'hidden',
                         position: 'relative',
                         cursor: zoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
+                        minHeight: 0,
                     }}
                 >
                     <div style={{
@@ -199,12 +188,11 @@ const CvResume = ({ onBack }) => {
                         />
                     </div>
 
-                    {/* Zoom hint */}
                     <div style={{
-                        position: 'absolute', bottom: '10px', right: '10px',
+                        position: 'absolute', bottom: '8px', right: '8px',
                         background: 'rgba(0,0,0,0.6)',
                         color: 'rgba(255,255,255,0.55)',
-                        fontSize: '.65rem', padding: '3px 10px',
+                        fontSize: '.6rem', padding: '2px 8px',
                         borderRadius: '999px', pointerEvents: 'none',
                         fontFamily: 'Lato, sans-serif'
                     }}>
@@ -212,20 +200,17 @@ const CvResume = ({ onBack }) => {
                     </div>
                 </div>
 
-                {/* Bottom fallback */}
                 <p style={{
-                    color: 'rgba(255,255,255)', fontSize: '.7rem',
+                    color: 'rgba(255,255,255,0.8)', fontSize: '.68rem',
                     fontFamily: 'Lato, sans-serif', textAlign: 'center',
-                    margin: '10px 0 0', flexShrink: 0
+                    margin: '8px 0 0', flexShrink: 0
                 }}>
-                    Can't see the PDF?
+                    Can't see the PDF?{' '}
                     <a href={RESUME_PDF} target="_blank" rel="noreferrer"
                         style={{ color: '#C8AF62', textDecoration: 'underline' }}
                         onMouseEnter={e => (e.target.style.color = '#E85395')}
                         onMouseLeave={e => (e.target.style.color = '#C8AF62')}
-                    >
-                        Open in new tab
-                    </a>
+                    >Open in new tab</a>
                 </p>
             </div>
         </>
