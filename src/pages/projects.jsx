@@ -440,28 +440,28 @@ const Projects = () => {
             category: 'Posters',
             coverImage: oth1,
             additionalPics: [oth2, oth3, oth4, oth5],
-            description: 'Various design projects including collages, family trees, endorsements, and ID mockups.',
-            techStack: [tech(Canva,'Canva'), tech(Figma,'Figma')],
+            description: 'Compilation of individual school activities relating to publication materials.',
+            techStack: [tech(Canva,'Canva')],
             contributions: [
-                'Created photo collages',
-                'Designed family tree visualizations',
-                'Produced food endorsement materials',
-                'Developed ID card mockups'
+                '1st Image: Poster about Equality',
+                '2nd Image: Poster activity using Photoshop',
+                '3rd Image: Family Tree of Dr. Jose Rizal',
+                '4th Image: Hypothetical Fast Food Promotion Poster',
+                '5th Image: Identification Card of a Hypothetical Company'
             ]
         },
         {
+        
             id: 19,
-            title: 'School Anniversary Intro Video',
+            title: 'Golden Anniversary Vlog',
             category: 'Media',
             coverImage: svid1,
             additionalPics: [],
-            description: 'Opening video for school golden anniversary celebration featuring motion graphics and transitions.',
+            description: 'Introduction clip of my 3-minute vlog for a school project.',
             techStack: [tech(Capcut,'CapCut')],
             contributions: [
-                'Created motion graphics',
-                'Developed video transitions',
-                'Produced opening sequence',
-                'Edited anniversary footage'
+                'Videographer, Photographer and Editor of the video',
+                'Video Link: https://drive.google.com/file/d/1fLXHG-x9-tt5XvSTxBUOXDMKa_snaKfk/view?usp=sharing',
             ]
         },
         {
@@ -470,28 +470,23 @@ const Projects = () => {
             category: 'Media',
             coverImage: pvids[0],
             additionalPics: [pvids[1], pvids[2]],
-            description: 'Animated Instagram story templates for personal branding and social media content.',
+            description: 'Templates made in Instagram, Capcut, and Canva.',
             techStack: [tech(Capcut,'CapCut'), tech(Canva,'Canva')],
             contributions: [
-                'Designed story templates',
-                'Created animations',
-                'Developed transitions',
-                'Produced engaging content'
+                'Photographer and Editor of the templates'
             ]
         },
         {
             id: 21,
-            title: 'TikTok Content Series',
+            title: 'Kristale: My Tiktok Content Series',
             category: 'Media',
             coverImage: tiktok[0],
             additionalPics: [tiktok[1]],
-            description: 'Series of TikTok videos featuring creative editing and storytelling.',
+            description: 'My series as Kristal containing vlogs and videos made in Capcut.',
             techStack: [tech(Capcut,'CapCut')],
             contributions: [
-                'Created video concepts',
-                'Edited video content',
-                'Developed storytelling',
-                'Produced engaging shorts'
+                'Content Creator and Visual Storyteller',
+                'Videographer and Editor of the videos'
             ]
         }
     ], []);
